@@ -1,0 +1,202 @@
+html {
+    font-size: 62.5%; 
+    /* 因为浏览器的默认字体大小通常为 16px，62.5% 就相当于 16px 的 62.5%，也就是 10px */
+    /* 这样做的目的是为了简化字体大小的计算，1rem（根元素的字体大小）等于 10px，使得以后在 CSS 中设置字体大小时可以轻松使用 rem 作为单位 */
+    overflow-x: hidden;  /* 防止页面水平滚动 */
+    scroll-behavior: smooth; /* 平滑滚动 */
+    scroll-padding-top: 6rem; /* 滚动时距离顶部的距离(防止滚动到目标位置时目标被顶部的固定元素（比如导航栏）遮挡) */
+}
+
+.header { 
+    z-index: 1000; /* z-index 属性设置元素的堆叠顺序 确保导航栏在页面中位于其他元素的上方 */
+    padding: 3rem 0; /* 上下 padding 为 3rem 在上下方向上有足够的内边距*/
+    background: transparent; /* 初始背景透明 */
+    transition: background 0.3s ease, padding 0.25s ease; /* 添加平滑过渡 */
+}
+
+.header .logo { 
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bolder;
+}
+
+section {  
+    padding: 5rem 1rem;  
+}
+
+.home {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1200px-Roasted_coffee_beans.jpg) no-repeat;  /* 背景图片(随便找的后期商量更换) 防止重复 */
+    background-size: cover;
+    background-position: center;
+}
+
+.header .navigation a {  /* 选择 .navigation 元素内部的所有 <a> 标签 */
+    font-size: 2.5rem;
+    margin-right: 2rem;
+    color: #fff;
+}
+
+.header .navigation a:hover {
+    text-decoration: underline !important; /* !important 是一个优先级声明，它会覆盖其他具有相同选择器规则的样式，确保该规则总是被应用 */
+    text-underline-offset: .5rem; /*表示下划线与文本之间的距离是 0.5rem*/
+}
+
+/* 图标容器样式 */
+.iconContainer {
+    position: relative; /* 相对定位 */
+    display: inline-block; /* 切换成行内块元素 */
+}
+
+/* 隐藏提示框的初始样式 */
+.iconContainer .tooltip {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+
+    /* 提示框位置：图标下方 */
+    position: absolute;
+    bottom: -140%; /* 提示框会出现在图标下方 */
+    left: 50%;
+    transform: translateX(-50%); /* 水平居中 */
+    white-space: nowrap; /* 防止文本换行 */
+
+    /* 隐藏提示框时的透明效果 */
+    opacity: 0;
+    transition: opacity 0.3s; /* 过渡效果，0.3s 表示过渡时间为 0.3 秒 */
+}
+
+/* 当鼠标悬停时显示提示框 */
+.iconContainer:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.login {
+    position: fixed; /* 固定定位 */
+    top: 0;  /* 距离顶部 0 */
+    left: 0;  /* 距离左侧 0 */
+    z-index: 1100; /* z-index 属性设置元素的堆叠顺序 确保登录框在页面中位于其他元素的上方 */
+    height: 100%;  
+    width: 100%;  
+    background: rgba(0, 0, 0, 0.8);  /* 背景颜色为黑色，透明度为 0.8 */
+    display: none; /* 默认隐藏 */
+    padding: 2rem; 
+    align-items: center;  /* 垂直居中 */
+    justify-content: center; /* 水平垂直居中 */  
+}
+
+.login form {
+    width: 50rem; /* 表单宽度 */
+    padding: 4rem; /* 表单内边距 */
+    background: #fff; /* 表单背景颜色 */
+    text-align: center; /* 文本居中 */
+    position: relative; /* 相对定位 */
+    animation: fadeIn .2s linear; /* 淡入动画 */
+}
+
+@keyframes fadeIn { /* 淡入动画 */
+    0% { /* 0% 表示动画开始时的状态 */
+        transform: translateY(-2rem);  /* 向下移动 2rem */
+        opacity: 0; /* 透明度为 0 */
+    }
+}
+
+.login form h2 {
+    padding: 1rem 0;
+    font-size: 3rem;
+    color: #222; 
+    margin-top: 1rem; /* 顶部外边距 */
+}
+
+.login form .enter { /* 登录输入框样式 */
+    width: 100%;
+    padding: 1.2rem 1.4rem; 
+    border: 0.1rem solid #512a10;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+}
+
+.login form .user { /* 更改email和password的样式 */
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.login form .flex { /* 更改忘记密码和记住我勾选框的样式 */
+    display: flex;
+    align-items: center;
+    gap: .5rem; /* 间距 */
+    margin: 1rem 0;
+}
+
+.login form .flex label { /* 更改label的样式 */
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #666;
+    margin-bottom: 0; /* 取消底部外边距 */
+    cursor: pointer; /* 鼠标悬停时显示手型(提醒你可以点击) */
+}
+
+.login form .flex a { /* 更改忘记密码的样式 */
+    font-size: 1.5rem;
+    color: #512a10;
+    margin-left: auto; /* 左边距自动 */
+}
+  
+.login form .flex a:hover { /* 鼠标悬停时 */
+    text-decoration: underline !important; /* 下划线 */
+}
+
+.submitButton { /* 按钮样式 */
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    display: inline-block;
+    border: 0.1rem solid #512a10;
+    color: #512a10;
+    background: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+  
+.submitButton:hover {
+    background: #512a10;
+    color: #fff;
+}
+
+.login form .submitButton {
+    margin-bottom: 2rem;
+}
+
+.login form .account {
+    padding: 1.5rem .5rem;
+    font-size: 1.5rem;
+    line-height: 2; /* 行高 */
+    color: #666;
+    margin-bottom: 0;
+}
+
+.login form #close {
+    position: absolute;  /* 绝对定位 */
+    top: -4rem; 
+    right: 0; 
+    font-size: 3rem;
+    cursor: pointer;  
+    color: #fff;
+    transition: transform 0.3s ease;  /* 添加旋转的过渡效果 */    
+}
+  
+.login form #close:hover {
+    transform: rotate(90deg); /* 旋转 90 度 */
+}
+
+.login.active {
+    display: flex;
+}
+
+.header.active {
+    padding: 1.5rem 0;
+    background: rgba(81, 42, 16, 0.9); /* 带有透明度的背景颜色 */
+}   
