@@ -12,6 +12,15 @@ html {
     padding: 3rem 0; /* 上下 padding 为 3rem 在上下方向上有足够的内边距*/
     background: transparent; /* 初始背景透明 */
     transition: background 0.3s ease, padding 0.25s ease; /* 添加平滑过渡 */
+    .icons div {
+        font-size: 2.5rem; /* 设置字体大小为 2.5rem，1rem 通常等于 16 像素 */
+        color: white; /* 设置文本颜色为白色 */
+        margin-left: 1px; /* 设置左侧外边距为 1 像素 */
+        cursor: pointer; /* 鼠标悬停时显示为指针，表示可点击 */
+    }
+    #menu-btn{
+        display: none; /* 默认隐藏 */
+    }
 }
 
 .header .logo { 
@@ -24,10 +33,13 @@ section {
     padding: 5rem 1rem;  
 }
 
+
 .home {
-    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/1200px-Roasted_coffee_beans.jpg) no-repeat;  /* 背景图片(随便找的后期商量更换) 防止重复 */
+    background: url(https://wallpaperaccess.com/full/1425544.jpg) no-repeat;  /* 背景图片(随便找的后期商量更换) 防止重复 */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* 背景图片固定 */
+    
 }
 
 .header .navigation a {  /* 选择 .navigation 元素内部的所有 <a> 标签 */
@@ -95,7 +107,7 @@ section {
     background: #fff; /* 表单背景颜色 */
     text-align: center; /* 文本居中 */
     position: relative; /* 相对定位 */
-    animation: fadeIn .2s linear; /* 淡入动画 */
+    animation: fadeIn .8s linear; /* 淡入动画 */
 }
 
 @keyframes fadeIn { /* 淡入动画 */
@@ -200,3 +212,59 @@ section {
     padding: 1.5rem 0;
     background: rgba(81, 42, 16, 0.9); /* 带有透明度的背景颜色 */
 }   
+
+/* 当视口宽度小于或等于 991 像素时应用的样式 */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%; /* 将根元素的字体大小设置为 55% */
+        scroll-padding-top: 8rem; /* 设置滚动填充顶部为 8rem */
+    }
+}
+
+/* 当视口宽度小于或等于 768 像素时应用的样式 */
+@media (max-width: 768px) {
+    .header {
+        padding: 4rem 1rem; /* 设置 header 元素的内边距为 4rem 上下，1rem 左右 */
+
+        &.active {
+            padding: 2rem; /* 当 header 元素具有 active 类时，内边距设置为 2rem */
+        }
+
+        #menu-btn {
+            display: inline-block; /* 显示 menu 按钮，设置为 inline-block */
+            
+            &.fa-times {
+                transform: rotate(180deg); /* 当 menu 按钮具有 fa-times 类时，旋转 180 度 */
+            }
+        }
+
+        .navigation {
+            position: absolute; /* 绝对定位 */
+            top: 99%; /* 距离顶部 99% */
+            left: 0; /* 距离左侧 0 */
+            right: 0; /* 距离右侧 0 */
+            background: white; /* 背景颜色为白色 */
+            display: flex; /* 设置为 flex 布局 */
+            flex-flow: column; /* 设置 flex 布局方向为列 */
+            padding: 1rem 0; /* 设置内边距，上下为 1rem，左右为 0 */
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* 初始状态下，导航栏不可见 */
+            
+            &.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* 当导航栏具有 active 类时，显示导航栏 */
+            }
+        }
+
+        .navigation a {
+            margin: 1rem 2rem; /* 设置链接元素的外边距，上下为 1rem，左右为 2rem */
+            color: black; /* 设置链接元素的文本颜色为黑色 */
+        }
+    }
+}
+
+/* 当视口宽度小于或等于 450 像素时应用的样式 */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%; /* 将根元素的字体大小设置为 55% */
+    }
+}
+
