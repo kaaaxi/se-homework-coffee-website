@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee-Web</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> <!--引入icon-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css"> <!--引入bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!--引入icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    <!--引入bootstrap-->
     <link rel="stylesheet" href="../css/coffee-css.css"> <!--引入自己的css-->
 </head>
+
 <body>
     <header class="header fixed-top"> <!--头部 fixed-top Bootstrap 类 将导航栏固定在页面的顶部-->
         <div class="container"> <!--容器-->
             <div class="row align-items-center"> <!-- Bootstrap 类 将子元素整体居中-->
-                <a href="#" class="logo mr-auto"><img src="" alt="后期放个logo"></a>  <!--logo--> <!--mr-auto Bootstrap 类 将元素向右对齐-->
-                <nav class="navigation"> <!--导航--> 
-                    <a href="#home" class="iconContainer"><i class="fa-solid fa-house"></i><span class="tooltip">Home</span></a> 
+                <a href="#" class="logo mr-auto"><img src="" alt="后期放个logo"></a> <!--logo-->
+                <!--mr-auto Bootstrap 类 将元素向右对齐-->
+                <nav class="navigation"> <!--导航-->
+                    <a href="#home" class="iconContainer"><i class="fa-solid fa-house"></i><span
+                            class="tooltip">Home</span></a>
                     <a href="#about">about</a> <!--咖啡小知识-->
                     <a href="#menu">menu</a> <!--菜单(食品导航) 后面要单独拿出来制作展开了解更多查看原料和制作方法-->
                     <a href="#map">map</a> <!--附近咖啡店地图(导入地图)-->
                     <a href="#contact">contact</a> <!--联系我们-->
-                    <a href="#login" class="iconContainer" id="loginIcon"><i class="fa-solid fa-circle-user"></i><span class="tooltip">Login</span></a> <!--登录-->
+                    <a href="#login" class="iconContainer" id="loginIcon"><i class="fa-solid fa-circle-user"></i><span
+                            class="tooltip">Login</span></a> <!--登录-->
                 </nav>
                 <div class="icons">
                     <div id="menu-btn" class="fas fa-bars"></div>
                 </div>
-           </div>
-        </div> 
+            </div>
+        </div>
     </header>
 
     <section class="home" id="home">
         <div class="container">
-            <div class="row min-vh-100"> <!--确保背景铺满-->
-
+            <div class="min-vh-100">
+                <div class="slidershow middle">
+                    <div class="slides">
+                        <input type="radio" name="r" id="r1">
+                        <input type="radio" name="r" id="r2">
+                        <input type="radio" name="r" id="r3">
+                        <input type="radio" name="r" id="r4">
+                        <input type="radio" name="r" id="r5">
+                        <div class="slide s1">
+                            <img src="https://wallpaperaccess.com/full/1425544.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.pexels.com/photos/129207/pexels-photo-129207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.pixabay.com/photo/2015/05/07/13/46/cappuccino-756490_1280.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.pixabay.com/photo/2023/09/30/17/13/coffee-beans-8286087_1280.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_1280.jpg" alt="">
+                        </div>
+                    </div>
+        
+                    <div class="imgnavigation">
+                        <label for="r1" class="bar changeColor"></label>
+                        <label for="r2" class="bar"></label>
+                        <label for="r3" class="bar"></label>
+                        <label for="r4" class="bar"></label>
+                        <label for="r5" class="bar"></label>
+                    </div>
+                </div>
+                <div class="home-maker row align-items-center text-center text-md-left">
+                    <div class="col-md-6">
+                        <h2 class="coffee-house">Coffee house</h2>
+                        <p class="font">Let's enjoy coffee!</p>
+                        <a href="#" class="link-btn">get started</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -59,4 +105,5 @@
 
     <script src="../js/coffee-js.js"></script> <!--引入自己的js-->
 </body>
+
 </html>
