@@ -1,62 +1,239 @@
 html {
-    font-size: 62.5%; 
+    font-size: 62.5%;
     /* 因为浏览器的默认字体大小通常为 16px，62.5% 就相当于 16px 的 62.5%，也就是 10px */
     /* 这样做的目的是为了简化字体大小的计算，1rem（根元素的字体大小）等于 10px，使得以后在 CSS 中设置字体大小时可以轻松使用 rem 作为单位 */
-    overflow-x: hidden;  /* 防止页面水平滚动 */
-    scroll-behavior: smooth; /* 平滑滚动 */
-    scroll-padding-top: 6rem; /* 滚动时距离顶部的距离(防止滚动到目标位置时目标被顶部的固定元素（比如导航栏）遮挡) */
+    overflow-x: hidden;
+    /* 防止页面水平滚动 */
+    scroll-behavior: smooth;
+    /* 平滑滚动 */
+    scroll-padding-top: 6rem;
+    /* 滚动时距离顶部的距离(防止滚动到目标位置时目标被顶部的固定元素（比如导航栏）遮挡) */
 }
 
-.header { 
-    z-index: 1000; /* z-index 属性设置元素的堆叠顺序 确保导航栏在页面中位于其他元素的上方 */
-    padding: 3rem 0; /* 上下 padding 为 3rem 在上下方向上有足够的内边距*/
-    background: transparent; /* 初始背景透明 */
-    transition: background 0.3s ease, padding 0.25s ease; /* 添加平滑过渡 */
+.header {
+    z-index: 1000;
+    /* z-index 属性设置元素的堆叠顺序 确保导航栏在页面中位于其他元素的上方 */
+    padding: 3rem 0;
+    /* 上下 padding 为 3rem 在上下方向上有足够的内边距*/
+    background: transparent;
+    /* 初始背景透明 */
+    transition: background 0.3s ease, padding 0.25s ease;
+
+    /* 添加平滑过渡 */
     .icons div {
-        font-size: 2.5rem; /* 设置字体大小为 2.5rem，1rem 通常等于 16 像素 */
-        color: white; /* 设置文本颜色为白色 */
-        margin-left: 1px; /* 设置左侧外边距为 1 像素 */
-        cursor: pointer; /* 鼠标悬停时显示为指针，表示可点击 */
+        font-size: 2.5rem;
+        /* 设置字体大小为 2.5rem，1rem 通常等于 16 像素 */
+        color: white;
+        /* 设置文本颜色为白色 */
+        margin-left: 1px;
+        /* 设置左侧外边距为 1 像素 */
+        cursor: pointer;
+        /* 鼠标悬停时显示为指针，表示可点击 */
     }
-    #menu-btn{
-        display: none; /* 默认隐藏 */
+
+    #menu-btn {
+        display: none;
+        /* 默认隐藏 */
     }
 }
 
-.header .logo { 
+.header .logo {
     font-size: 3rem;
     color: #fff;
     font-weight: bolder;
 }
 
-section {  
-    padding: 5rem 1rem;  
+section {
+    padding: 5rem 1rem;
 }
 
 
-.home {
-    background: url(https://wallpaperaccess.com/full/1425544.jpg) no-repeat;  /* 背景图片(随便找的后期商量更换) 防止重复 */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* 背景图片固定 */
-    
-}
-
-.header .navigation a {  /* 选择 .navigation 元素内部的所有 <a> 标签 */
+.header .navigation a {
+    /* 选择 .navigation 元素内部的所有 <a> 标签 */
     font-size: 2.5rem;
     margin-right: 2rem;
     color: #fff;
 }
 
 .header .navigation a:hover {
-    text-decoration: underline !important; /* !important 是一个优先级声明，它会覆盖其他具有相同选择器规则的样式，确保该规则总是被应用 */
-    text-underline-offset: .5rem; /*表示下划线与文本之间的距离是 0.5rem*/
+    /* text-decoration: underline !important; */
+    text-decoration: none;
+    /* !important 是一个优先级声明，它会覆盖其他具有相同选择器规则的样式，确保该规则总是被应用 */
+    text-underline-offset: .5rem;
+    /*表示下划线与文本之间的距离是 0.5rem*/
+    background-color: gray;
+    border-radius: 10px;
 }
+
+.home {
+    background: black;
+    /* 背景图片(随便找的后期商量更换) 防止重复 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* width: 100%;
+    height: 102vh; */
+    /* 背景图片固定 */
+
+}
+
+.containner {
+    position: absolute;
+}
+
+.home-maker .coffee-house {
+    opacity: 0;
+    transform: translate(-20rem, 0);
+    transition: opacity 1s ease, transform 1s ease;
+    position: flex;
+    /* 相对定位 */  
+    font-size: 5rem;
+    margin-top: 40rem;
+    margin-left: 20rem;
+    /* 确保 .coffee-house 元素本身没有额外的顶部外边距 */
+    color: #fff
+}
+
+.home-maker .link-btn {
+    opacity: 0;
+    /* 透明度先设为0 */
+    transform: translate(-300px, 0);
+    /* 初始位置 */
+    transition: opacity 1.7s ease, transform 1.7s ease, color 0.3s ease;
+    /* 添加动画效果和鼠标放上去的时候颜色过渡效果 */
+    position: absolute;
+    /* 绝对定位 */
+    top: 65rem;
+    left: 23rem;
+    font-size: 3rem;
+    /* 设置字体大小为 2rem */
+    color: #fff;
+    /* 设置链接颜色 */
+    text-decoration: none;
+    /* 去除下划线 */
+    border: #fff 0.3rem solid;
+    border-radius: 3rem;
+    /* 边框圆一点 */
+    padding: 0.5rem 1rem;
+    /* 设置内边距 */
+}
+
+.home-maker .link-btn:hover {
+    color: #512a10;
+    /* 鼠标悬停时链接颜色变为白色 */
+    border-color: #512a10;
+}
+
+.home-maker .font {
+    opacity: 0;
+    transform: translate(-20rem, 0);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    font-size: 3rem;
+    margin-top: 2rem;
+    position: flex;
+    margin-left: 20rem;
+    color: #fff
+}
+
+
+.slidershow {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 100%;
+    display: flex;
+
+}
+
+.slide {
+    width: 20%;
+    transition: 0.6s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.imgnavigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.bar {
+    /* 就是下面那白色的五个东西 */
+    width: 75px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    /* 鼠标放上去的颜色变化时间 */
+}
+
+.changeColor {
+    background: #fff;
+}
+
+.bar:hover {
+    background: #fff;
+}
+
+input[name='r'] {
+    position: absolute;
+    visibility: hidden;
+    /* 隐藏了真正用于选择图片的开关 */
+}
+
+#r1:checked~.s1 {
+    margin-left: 0;
+}
+
+
+#r2:checked~.s1 {
+    margin-left: -20%;
+}
+
+
+#r3:checked~.s1 {
+    margin-left: -40%;
+}
+
+
+#r4:checked~.s1 {
+    margin-left: -60%;
+}
+
+
+#r5:checked~.s1 {
+    margin-left: -80%;
+}
+
 
 /* 图标容器样式 */
 .iconContainer {
-    position: relative; /* 相对定位 */
-    display: inline-block; /* 切换成行内块元素 */
+    position: relative;
+    /* 相对定位 */
+    display: inline-block;
+    /* 切换成行内块元素 */
 }
 
 /* 隐藏提示框的初始样式 */
@@ -71,14 +248,18 @@ section {
 
     /* 提示框位置：图标下方 */
     position: absolute;
-    bottom: -140%; /* 提示框会出现在图标下方 */
+    bottom: -140%;
+    /* 提示框会出现在图标下方 */
     left: 50%;
-    transform: translateX(-50%); /* 水平居中 */
-    white-space: nowrap; /* 防止文本换行 */
+    transform: translateX(-50%);
+    /* 水平居中 */
+    white-space: nowrap;
+    /* 防止文本换行 */
 
     /* 隐藏提示框时的透明效果 */
     opacity: 0;
-    transition: opacity 0.3s; /* 过渡效果，0.3s 表示过渡时间为 0.3 秒 */
+    transition: opacity 0.3s;
+    /* 过渡效果，0.3s 表示过渡时间为 0.3 秒 */
 }
 
 /* 当鼠标悬停时显示提示框 */
@@ -88,81 +269,113 @@ section {
 }
 
 .login {
-    position: fixed; /* 固定定位 */
-    top: 0;  /* 距离顶部 0 */
-    left: 0;  /* 距离左侧 0 */
-    z-index: 1100; /* z-index 属性设置元素的堆叠顺序 确保登录框在页面中位于其他元素的上方 */
-    height: 100%;  
-    width: 100%;  
-    background: rgba(0, 0, 0, 0.8);  /* 背景颜色为黑色，透明度为 0.8 */
-    display: none; /* 默认隐藏 */
-    padding: 2rem; 
-    align-items: center;  /* 垂直居中 */
-    justify-content: center; /* 水平垂直居中 */  
+    position: fixed;
+    /* 固定定位 */
+    top: 0;
+    /* 距离顶部 0 */
+    left: 0;
+    /* 距离左侧 0 */
+    z-index: 1100;
+    /* z-index 属性设置元素的堆叠顺序 确保登录框在页面中位于其他元素的上方 */
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    /* 背景颜色为黑色，透明度为 0.8 */
+    display: none;
+    /* 默认隐藏 */
+    padding: 2rem;
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: center;
+    /* 水平垂直居中 */
 }
 
 .login form {
-    width: 50rem; /* 表单宽度 */
-    padding: 4rem; /* 表单内边距 */
-    background: #fff; /* 表单背景颜色 */
-    text-align: center; /* 文本居中 */
-    position: relative; /* 相对定位 */
-    animation: fadeIn .8s linear; /* 淡入动画 */
+    width: 50rem;
+    /* 表单宽度 */
+    padding: 4rem;
+    /* 表单内边距 */
+    background: #fff;
+    /* 表单背景颜色 */
+    text-align: center;
+    /* 文本居中 */
+    position: relative;
+    /* 相对定位 */
+    animation: fadeIn .8s linear;
+    /* 淡入动画 */
 }
 
-@keyframes fadeIn { /* 淡入动画 */
-    0% { /* 0% 表示动画开始时的状态 */
-        transform: translateY(-2rem);  /* 向下移动 2rem */
-        opacity: 0; /* 透明度为 0 */
+@keyframes fadeIn {
+
+    /* 淡入动画 */
+    0% {
+        /* 0% 表示动画开始时的状态 */
+        transform: translateY(-2rem);
+        /* 向下移动 2rem */
+        opacity: 0;
+        /* 透明度为 0 */
     }
 }
 
 .login form h2 {
     padding: 1rem 0;
     font-size: 3rem;
-    color: #222; 
-    margin-top: 1rem; /* 顶部外边距 */
+    color: #222;
+    margin-top: 1rem;
+    /* 顶部外边距 */
 }
 
-.login form .enter { /* 登录输入框样式 */
+.login form .enter {
+    /* 登录输入框样式 */
     width: 100%;
-    padding: 1.2rem 1.4rem; 
+    padding: 1.2rem 1.4rem;
     border: 0.1rem solid #512a10;
     font-size: 1.6rem;
     margin: 1rem 0;
 }
 
-.login form .user { /* 更改email和password的样式 */
+.login form .user {
+    /* 更改email和password的样式 */
     font-size: 2rem;
     margin: 0.5rem 0;
 }
 
-.login form .flex { /* 更改忘记密码和记住我勾选框的样式 */
+.login form .flex {
+    /* 更改忘记密码和记住我勾选框的样式 */
     display: flex;
     align-items: center;
-    gap: .5rem; /* 间距 */
+    gap: .5rem;
+    /* 间距 */
     margin: 1rem 0;
 }
 
-.login form .flex label { /* 更改label的样式 */
+.login form .flex label {
+    /* 更改label的样式 */
     font-size: 1.5rem;
     line-height: 2;
     color: #666;
-    margin-bottom: 0; /* 取消底部外边距 */
-    cursor: pointer; /* 鼠标悬停时显示手型(提醒你可以点击) */
+    margin-bottom: 0;
+    /* 取消底部外边距 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型(提醒你可以点击) */
 }
 
-.login form .flex a { /* 更改忘记密码的样式 */
+.login form .flex a {
+    /* 更改忘记密码的样式 */
     font-size: 1.5rem;
     color: #512a10;
-    margin-left: auto; /* 左边距自动 */
-}
-  
-.login form .flex a:hover { /* 鼠标悬停时 */
-    text-decoration: underline !important; /* 下划线 */
+    margin-left: auto;
+    /* 左边距自动 */
 }
 
-.submitButton { /* 按钮样式 */
+.login form .flex a:hover {
+    /* 鼠标悬停时 */
+    text-decoration: underline !important;
+    /* 下划线 */
+}
+
+.submitButton {
+    /* 按钮样式 */
     margin-top: 1rem;
     padding: 1rem 3rem;
     display: inline-block;
@@ -172,7 +385,7 @@ section {
     cursor: pointer;
     font-size: 1.7rem;
 }
-  
+
 .submitButton:hover {
     background: #512a10;
     color: #fff;
@@ -185,23 +398,27 @@ section {
 .login form .account {
     padding: 1.5rem .5rem;
     font-size: 1.5rem;
-    line-height: 2; /* 行高 */
+    line-height: 2;
+    /* 行高 */
     color: #666;
     margin-bottom: 0;
 }
 
 .login form #close {
-    position: absolute;  /* 绝对定位 */
-    top: -4rem; 
-    right: 0; 
+    position: absolute;
+    /* 绝对定位 */
+    top: -4rem;
+    right: 0;
     font-size: 3rem;
-    cursor: pointer;  
+    cursor: pointer;
     color: #fff;
-    transition: transform 0.3s ease;  /* 添加旋转的过渡效果 */    
+    transition: transform 0.3s ease;
+    /* 添加旋转的过渡效果 */
 }
-  
+
 .login form #close:hover {
-    transform: rotate(90deg); /* 旋转 90 度 */
+    transform: rotate(90deg);
+    /* 旋转 90 度 */
 }
 
 .login.active {
@@ -210,53 +427,72 @@ section {
 
 .header.active {
     padding: 1.5rem 0;
-    background: rgba(81, 42, 16, 0.9); /* 带有透明度的背景颜色 */
-}   
+    background: rgba(81, 42, 16, 0.9);
+    /* 带有透明度的背景颜色 */
+}
 
 /* 当视口宽度小于或等于 991 像素时应用的样式 */
 @media (max-width: 991px) {
     html {
-        font-size: 55%; /* 将根元素的字体大小设置为 55% */
-        scroll-padding-top: 8rem; /* 设置滚动填充顶部为 8rem */
+        font-size: 55%;
+        /* 将根元素的字体大小设置为 55% */
+        scroll-padding-top: 8rem;
+        /* 设置滚动填充顶部为 8rem */
     }
 }
 
 /* 当视口宽度小于或等于 768 像素时应用的样式 */
 @media (max-width: 768px) {
     .header {
-        padding: 4rem 1rem; /* 设置 header 元素的内边距为 4rem 上下，1rem 左右 */
+        padding: 4rem 1rem;
+        /* 设置 header 元素的内边距为 4rem 上下，1rem 左右 */
 
         &.active {
-            padding: 2rem; /* 当 header 元素具有 active 类时，内边距设置为 2rem */
+            padding: 2rem;
+            /* 当 header 元素具有 active 类时，内边距设置为 2rem */
         }
 
         #menu-btn {
-            display: inline-block; /* 显示 menu 按钮，设置为 inline-block */
-            
+            display: inline-block;
+            /* 显示 menu 按钮，设置为 inline-block */
+
             &.fa-times {
-                transform: rotate(180deg); /* 当 menu 按钮具有 fa-times 类时，旋转 180 度 */
+                transform: rotate(180deg);
+                /* 当 menu 按钮具有 fa-times 类时，旋转 180 度 */
             }
         }
 
         .navigation {
-            position: absolute; /* 绝对定位 */
-            top: 99%; /* 距离顶部 99% */
-            left: 0; /* 距离左侧 0 */
-            right: 0; /* 距离右侧 0 */
-            background: white; /* 背景颜色为白色 */
-            display: flex; /* 设置为 flex 布局 */
-            flex-flow: column; /* 设置 flex 布局方向为列 */
-            padding: 1rem 0; /* 设置内边距，上下为 1rem，左右为 0 */
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* 初始状态下，导航栏不可见 */
-            
+            position: absolute;
+            /* 绝对定位 */
+            top: 99%;
+            /* 距离顶部 99% */
+            left: 0;
+            /* 距离左侧 0 */
+            right: 0;
+            /* 距离右侧 0 */
+            background: white;
+            /* 背景颜色为白色 */
+            display: flex;
+            /* 设置为 flex 布局 */
+            flex-flow: column;
+            /* 设置 flex 布局方向为列 */
+            padding: 1rem 0;
+            /* 设置内边距，上下为 1rem，左右为 0 */
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            /* 初始状态下，导航栏不可见 */
+
             &.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* 当导航栏具有 active 类时，显示导航栏 */
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                /* 当导航栏具有 active 类时，显示导航栏 */
             }
         }
 
         .navigation a {
-            margin: 1rem 2rem; /* 设置链接元素的外边距，上下为 1rem，左右为 2rem */
-            color: black; /* 设置链接元素的文本颜色为黑色 */
+            margin: 1rem 2rem;
+            /* 设置链接元素的外边距，上下为 1rem，左右为 2rem */
+            color: black;
+            /* 设置链接元素的文本颜色为黑色 */
         }
     }
 }
@@ -264,7 +500,7 @@ section {
 /* 当视口宽度小于或等于 450 像素时应用的样式 */
 @media (max-width: 450px) {
     html {
-        font-size: 55%; /* 将根元素的字体大小设置为 55% */
+        font-size: 55%;
+        /* 将根元素的字体大小设置为 55% */
     }
 }
-
