@@ -35,9 +35,28 @@
         </div>
     </header>
 
+    <div class="login">
+        <form action="">
+            <div id="close" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
+            <h2>Log In</h2>
+            <label for="email" class="user">email:</label>
+            <input type="email" placeholder="enter your email" class="enter" id="email">
+            <label for="password" class="user">password:</label>
+            <input type="password" placeholder="enter your password" class="enter" id="password">
+            <div class="flex">
+                <input type="checkbox" name="" id="remember">
+                <label for="remember">remember me</label>
+                <a href="#">forget password?</a>
+            </div>
+            <input type="submit" value="sign in" class="submitButton">
+            <p class="account">Don't have an account? <a href="#">sign up</a></p>
+        </form>
+
+    </div>
+
     <section class="home" id="home">
         <div class="container">
-            <div class="min-vh-100">
+            <div class="">
                 <div class="slidershow middle">
                     <div class="slides">
                         <input type="radio" name="r" id="r1">
@@ -71,7 +90,7 @@
                         <label for="r5" class="bar"></label>
                     </div>
                 </div>
-                <div class="home-maker row align-items-center text-center text-md-left">
+                <div class="home-maker row align-items-center text-center text-md-left min-vh-100">
                     <div class="col-md-6">
                         <h2 class="coffee-house">Coffee house</h2>
                         <p class="font">Let's enjoy coffee!</p>
@@ -82,24 +101,7 @@
         </div>
     </section>
 
-    <div class="login">
-        <form action="">
-            <div id="close" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
-            <h2>Log In</h2>
-            <label for="email" class="user">email:</label>
-            <input type="email" placeholder="enter your email" class="enter" id="email">
-            <label for="password" class="user">password:</label>
-            <input type="password" placeholder="enter your password" class="enter" id="password">
-            <div class="flex">
-                <input type="checkbox" name="" id="remember">
-                <label for="remember">remember me</label>
-                <a href="#">forget password?</a>
-            </div>
-            <input type="submit" value="sign in" class="submitButton">
-            <p class="account">Don't have an account? <a href="#">sign up</a></p>
-        </form>
 
-    </div>
 
 
 

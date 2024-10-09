@@ -118,11 +118,11 @@ stopTimer.forEach(function (items) {
 })
 
 document.addEventListener('DOMContentLoaded', function () {
-    font.style.opacity = 1
-    font.style.transform = 'translate(-150px,-100px)'
     title.style.opacity = 1
-    title.style.transform = 'translate(-150px,-100px)'
+    // title.style.transform = 'translate(-150px,-100px)'
+    font.style.opacity = 1
+    // font.style.transform = 'translate(-150px,-100px)'
     linkBtn.style.opacity = 1
-    linkBtn.style.transform = 'translate(-150px,-100px)'
+    // linkBtn.style.transform = 'translate(-150px,-100px)'
 })
 // 这个就是刚开始加载画面的时候，会把那些文字移动
