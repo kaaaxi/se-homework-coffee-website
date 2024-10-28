@@ -10,6 +10,15 @@ html {
     /* 滚动时距离顶部的距离(防止滚动到目标位置时目标被顶部的固定元素（比如导航栏）遮挡) */
 }
 
+.heading {
+    /* 标题样式 */
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    text-transform: capitalize;
+    color: #222;
+}
+
 .header {
     z-index: 1000;
     /* z-index 属性设置元素的堆叠顺序 确保导航栏在页面中位于其他元素的上方 */
@@ -72,7 +81,7 @@ section {
     background-position: center;
     background-attachment: fixed;
     width: 100%;
-    height: 102vh;
+    height: 100vh;
     /* 背景图片固定 */
 
 }
@@ -86,7 +95,7 @@ section {
     /* transform: translate(-20rem, 0); */
     transition: opacity 1s ease, transform 1s ease;
     /* position: absolute; */
-    /* 相对定位 */  
+    /* 相对定位 */
     font-size: 5rem;
     /* margin-top: 40rem; */
     /* margin-left: 20rem;  */
@@ -505,4 +514,86 @@ input[name='r'] {
         font-size: 55%;
         /* 将根元素的字体大小设置为 55% */
     }
+}
+
+.about {
+    height: 103rem;
+}
+
+.about .box-container {
+    display: grid;
+    /* 设置为网格布局 */
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    /* 设置网格列的大小(一行几个)*/
+    gap: 3rem;
+    /* 设置网格之间的间距 */
+}
+
+.about .box-container .box {
+    overflow: hidden;
+    /* 隐藏溢出内容 */
+    position: relative;
+    /* 相对定位 */
+    height: 25rem;
+    /* 设置高度 */
+    top: 50%;
+
+}
+
+.about .box-container .box:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    /* 添加阴影 */
+    border: 0.1rem solid #512a10;
+
+}
+
+.about .box-container .box:hover img {
+    transform: translateY(-100%);
+    /* 图片向上移动 */
+}
+
+.about .box-container .box:hover .content {
+    transform: translateY(-16%);
+    /* 显示内容 */
+}
+
+.about .box-container .box img {
+    width: 100%;
+    /* 设置图片宽度为 100% */
+    height: 100%;
+    /* 设置图片高度为 100% */
+    object-fit: cover;
+    /* 设置图片填充方式 */
+    transition: 0.3s ease;
+    /* 添加过渡效果 */
+}
+
+.about .box-container .box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    text-align: center;
+    /* 文本居中 */
+    padding: 3rem 2rem;
+    height: 100%;
+    width: 100%;
+    transform: translateY(100%);
+    /* 隐藏内容 */
+    padding-top: 4rem;
+    transition: 0.3s ease;
+}
+
+.about .box-container .box .content h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: #222;
+}
+
+.about .box-container .box .content p {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #666;
+    margin-bottom: 0;
 }
