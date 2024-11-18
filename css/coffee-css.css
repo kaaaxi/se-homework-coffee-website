@@ -81,7 +81,7 @@ section {
     background-position: center;
     background-attachment: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100vh; 
     /* 背景图片固定 */
 
 }
@@ -450,13 +450,22 @@ input[name='r'] {
         scroll-padding-top: 8rem;
         /* 设置滚动填充顶部为 8rem */
     }
+    section {
+        padding: 3rem 0;
+    }
 }
 
 /* 当视口宽度小于或等于 768 像素时应用的样式 */
 @media (max-width: 768px) {
+    .login-form form {
+        padding: 3rem 2rem;
+      }
+      .login-form form h3 {
+        font-size: 1.7rem;
+      }
     .header {
-        padding: 4rem 1rem;
-        /* 设置 header 元素的内边距为 4rem 上下，1rem 左右 */
+        padding: 4rem 2rem;
+        /* 设置 header 元素的内边距为 4rem 上下，2rem 左右 */
 
         &.active {
             padding: 2rem;
@@ -506,19 +515,23 @@ input[name='r'] {
             /* 设置链接元素的文本颜色为黑色 */
         }
     }
+    .bar { 
+        display: none;
+    }
 }
 
 /* 当视口宽度小于或等于 450 像素时应用的样式 */
 @media (max-width: 450px) {
     html {
-        font-size: 55%;
+        font-size: 50%;
         /* 将根元素的字体大小设置为 55% */
     }
 }
 
-.about {
+/* .about {
     height: 103rem;
-}
+
+} */
 
 .about .box-container {
     display: grid;
@@ -536,7 +549,7 @@ input[name='r'] {
     /* 相对定位 */
     height: 25rem;
     /* 设置高度 */
-    top: 50%;
+    /* top: 50%; */
 
 }
 
@@ -596,4 +609,64 @@ input[name='r'] {
     line-height: 2;
     color: #666;
     margin-bottom: 0;
+}
+
+
+.menu {
+    background: #eee;
+}
+
+.menu .menu-box .item-container {
+    display: grid; /* 设置为网格布局 */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); /* 设置网格列的大小 */
+    gap: 2rem; /* 设置网格之间的间距 */
+}
+
+.menu .menu-box .item-container .item {
+    text-align: center;
+    /* padding: 3rem 2rem; */
+    overflow: hidden;
+    /* 隐藏溢出内容 */
+    position: relative;
+    /* 相对定位 */
+    height: 30rem;
+
+}
+
+.menu .menu-box .item-container .item img {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s; /* 图片透明度过渡效果 */
+}
+
+.menu .menu-box .item-container .item h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: #222;
+  }
+  
+.menu .menu-box .item-container .item p {
+font-size: 1.5rem;
+/* line-height: 2; */
+
+position: absolute;
+bottom: -100%; 
+left: 0;  /* 左对齐 */
+/* width: 100%; */
+text-align: center; /* 文本居中 */
+transition: bottom 0.5s;
+padding: 1rem;
+/* box-sizing: border-box;   */
+font-weight: bold; /* 加粗 */
+}
+
+.menu .menu-box .item-container .item:hover img {
+    opacity: 0.2; /* 图片透明度 */
+}
+
+.menu .menu-box .item-container .item:hover p {
+    bottom: 50%;
+    transform: translateY(50%);
+    opacity: 1;
+    transition: 0.5s ease; /* 过渡时间 */
 }
