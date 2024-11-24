@@ -1033,3 +1033,90 @@ input[name='r'] {
     transition: 0.5s ease;
     /* 过渡时间 */
 }
+
+.contact {
+    background: #eee;
+}
+
+.contact h1 {
+    margin-bottom: 7rem;
+}
+
+.contact form h3 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: #222;
+    padding-bottom: 1rem;
+}
+
+.contact form .box {
+margin: .7rem 0;
+border: 0.1rem solid #512a10;
+font-size: 1.6rem;
+width: 100%;
+padding: 1.2rem 1.4rem;
+}
+
+.contact form .box:focus {
+    background: #512a10;
+    color: #fff;
+}
+
+.contact form .box:focus::placeholder {
+    color: #eee;
+}
+
+.contact form textarea {
+    height: 15rem;
+    resize: none;
+}
+
+.contact form .link-btn {
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    display: inline-block;
+    border: 0.1rem solid #512a10;
+    color: #512a10;
+    background: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+  }
+  
+.contact form .link-btn:hover {
+    background: #512a10;
+    color: #fff;
+}
+
+.foot {
+    text-align: center;
+}
+
+.foot .logo {
+    font-size: 4rem;
+    color: #512a10;
+    font-weight: bolder; /* 粗体 */
+}
+
+.foot .logo:hover {
+    text-decoration: none;
+}
+
+.foot .share {
+    margin-top: 3rem;
+}
+
+.foot .share a {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem; /* 行高 */
+    font-size: 3rem;
+    /* border: 0.1rem solid #512a10; */
+    color: #512a10;
+    margin: 0 .3rem;
+}
+
+.foot .share a:hover {
+    background: #512a10;
+    color: #fff;
+    text-decoration: none;
+}
