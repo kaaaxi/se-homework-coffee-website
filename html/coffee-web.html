@@ -16,7 +16,9 @@
     <header class="header fixed-top"> <!--头部 fixed-top Bootstrap 类 将导航栏固定在页面的顶部-->
         <div class="container"> <!--容器-->
             <div class="row align-items-center"> <!-- Bootstrap 类 将子元素整体居中-->
-                <a href="#" class="logo mr-auto"><img src="" alt="后期放个logo"></a> <!--logo-->
+                <a href="#" class="logo mr-auto"><img src="../photo/logo.jpg" alt="后期放个logo"><span>coffee
+                        machine</span></a>
+                <!--logo-->
                 <!--mr-auto Bootstrap 类 将元素向右对齐-->
                 <nav class="navigation"> <!--导航-->
                     <a href="#home" class="iconContainer"><i class="fa-solid fa-house"></i><span
@@ -36,23 +38,48 @@
     </header>
 
     <div class="login">
-        <form action="">
-            <div id="close" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
+        <form class="log-in" action="">
+            <div id="close1" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
+            <h3 class="loginerror">error</h3>
             <h2>Log In</h2>
             <label for="email" class="user">email:</label>
-            <input type="email" placeholder="enter your email" class="enter" id="email">
+            <input type="email" placeholder="enter your email" class="enter" id="login-email">
             <label for="password" class="user">password:</label>
-            <input type="password" placeholder="enter your password" class="enter" id="password">
+            <input type="password" placeholder="enter your password" class="enter" id="login-password">
             <div class="flex">
                 <input type="checkbox" name="" id="remember">
                 <label for="remember">remember me</label>
                 <a href="#">forget password?</a>
             </div>
-            <input type="submit" value="sign in" class="submitButton">
-            <p class="account">Don't have an account? <a href="#">sign up</a></p>
+            <input type="submit" value="sign in" class="login-submitButton">
+            <p class="account">Don't have an account? <a href="#" class="signup-button">sign up</a></p>
         </form>
 
     </div>
+
+
+    <div class="signup">
+        <form action="">
+            <div id="close2" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
+            <h3 class="signuperror">error</h3>
+            <h2>Sign Up</h2>
+            <label for="email" class="user">email:</label>
+            <input type="email" placeholder="enter your email" class="enter" id="signup-email">
+            <label for="password" class="user">password:</label>
+            <input type="password" placeholder="enter your password" class="enter" id="signup-password1">
+            <label for="password" class="user">please enter your password again:</label>
+            <input type="password" placeholder="enter your password" class="enter" id="signup-password2">
+            <div class="flex">
+                <input type="checkbox" name="" id="remember">
+                <label for="remember">I accept the terms & conditions</label>
+            </div>
+            <input type="submit" value="create account" class="signup-submitButton">
+            <p class="account">Already have an account? <a href="#" class="login-button">login</a></p>
+        </form>
+
+    </div>
+
+
 
     <section class="home" id="home">
         <div class="container">
@@ -75,10 +102,12 @@
                             <img src="https://cdn.pixabay.com/photo/2015/05/07/13/46/cappuccino-756490_1280.jpg" alt="">
                         </div>
                         <div class="slide">
-                            <img src="https://cdn.pixabay.com/photo/2023/09/30/17/13/coffee-beans-8286087_1280.jpg" alt="">
+                            <img src="https://cdn.pixabay.com/photo/2023/09/30/17/13/coffee-beans-8286087_1280.jpg"
+                                alt="">
                         </div>
                         <div class="slide">
-                            <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_1280.jpg" alt="">
+                            <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_1280.jpg"
+                                alt="">
                         </div>
                     </div>
                     <div class="imgnavigation">
@@ -154,57 +183,93 @@
     <section class="menu" id="menu">
 
         <h1 class="heading">menu</h1>
-    
+
         <div class="menu-box">
             <div class="container item-container">
                 <div class="item">
                     <img src="..\photo\Americano.png" alt="">
                     <h3>Americano</h3>
-                    <p>Americano, like a simple jazz, does not need gorgeous decoration, it can show the purest charm of coffee beans. Each bite is a tribute to the essence of coffee, fresh without losing depth, simple yet full of character. It is not only a drink, but also a reflection of life attitude - simple but not simple, ordinary to see the extraordinary</p>
+                    <p>Americano, like a simple jazz, does not need gorgeous decoration, it can show the purest charm of
+                        coffee beans. Each bite is a tribute to the essence of coffee, fresh without losing depth,
+                        simple yet full of character. It is not only a drink, but also a reflection of life attitude -
+                        simple but not simple, ordinary to see the extraordinary</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\latte.png" alt="">
                     <h3 class="name">clatte</h3>
-                    <p class="explain">Latte, with mellow concentrate as the base, through the collision with milk, to stimulate the mellow aroma of milk, thick mouth, warm heart. Taste, milk mellow with the bitterness of coffee, write a magnificent movement</p>
+                    <p class="explain">Latte, with mellow concentrate as the base, through the collision with milk, to
+                        stimulate the mellow aroma of milk, thick mouth, warm heart. Taste, milk mellow with the
+                        bitterness of coffee, write a magnificent movement</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\cappuccino.png" alt="">
                     <h3 class="name">cappuccino</h3>
-                    <p class="explain">Latte, with mellow concentrate as the base, through the collision with milk, to stimulate the mellow aroma of milk, thick mouth, warm heart. Taste, milk mellow with the bitterness of coffee, write a magnificent movement</p>
+                    <p class="explain">Latte, with mellow concentrate as the base, through the collision with milk, to
+                        stimulate the mellow aroma of milk, thick mouth, warm heart. Taste, milk mellow with the
+                        bitterness of coffee, write a magnificent movement</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\Caramel macchiato.png" alt="">
                     <h3 class="name">Caramel macchiato</h3>
-                    <p class="explain">The combination of caramel macchiato, milk and coffee liquid may still have a slightly bitter taste, but coupled with the sweetness of caramel, this drink has a quality improvement, the sweetness of caramel, with the mellow aroma of milk, with the fresh sense of coffee, bring a novel feeling to the tip of the guest's tongue.</p>
+                    <p class="explain">The combination of caramel macchiato, milk and coffee liquid may still have a
+                        slightly bitter taste, but coupled with the sweetness of caramel, this drink has a quality
+                        improvement, the sweetness of caramel, with the mellow aroma of milk, with the fresh sense of
+                        coffee, bring a novel feeling to the tip of the guest's tongue.</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\mocha.png" alt="">
                     <h3 class="name">mocha</h3>
-                    <p class="explain">Mocha's reputation stems from its rich flavor, appealing presentation, versatility, and emotional significance. These qualities solidify its cherished status among coffee enthusiasts. As both a sensory delight and a comforting presence, mocha remains a vital part of coffee culture, captivating palates and hearts with its distinct allure.</p>
+                    <p class="explain">Mocha's reputation stems from its rich flavor, appealing presentation,
+                        versatility, and emotional significance. These qualities solidify its cherished status among
+                        coffee enthusiasts. As both a sensory delight and a comforting presence, mocha remains a vital
+                        part of coffee culture, captivating palates and hearts with its distinct allure.</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\Flat white.png" alt="">
                     <h3 class="name">Flat white</h3>
-                    <p class="explain">The main characteristics of the taste are rich coffee aroma, silky milk foam, balanced sour and sweet degree, rich taste level and moderate coffee concentration. These characteristics make flat white become a favorite coffee drink for many people, whether it is coffee lovers or ordinary consumers, they can find their favorite taste in the process of tasting flat white.</p>
+                    <p class="explain">The main characteristics of the taste are rich coffee aroma, silky milk foam,
+                        balanced sour and sweet degree, rich taste level and moderate coffee concentration. These
+                        characteristics make flat white become a favorite coffee drink for many people, whether it is
+                        coffee lovers or ordinary consumers, they can find their favorite taste in the process of
+                        tasting flat white.</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\Italian espresso.png" alt="">
                     <h3 class="name">Italian espresso/h3>
-                    <p class="explain">Espresso, with its rich flavor and deep color, is known as the "black gold" in coffee. Like a drop of flowing amber, the soul of the coffee bean is condensed, and each bite is the ultimate challenge to the taste. Its strong aroma, as if it can penetrate the barriers of time, wake up the sleeping memory, let people find a moment of peace in the busy.</p>
+                        <p class="explain">Espresso, with its rich flavor and deep color, is known as the "black gold"
+                            in coffee. Like a drop of flowing amber, the soul of the coffee bean is condensed, and each
+                            bite is the ultimate challenge to the taste. Its strong aroma, as if it can penetrate the
+                            barriers of time, wake up the sleeping memory, let people find a moment of peace in the
+                            busy.</p>
                 </div>
                 <div class="item">
                     <img src="..\photo\Matcha latte.png" alt="">
                     <h3 class="name">Matcha latte</h3>
-                    <p class="explain">Matcha latte, like a touch of fresh green on a spring day, blends Oriental tea charm with Western milk perfectly. Its delicate foam moves gently on the tip of the tongue, like the cherry petals in the spring breeze, light without losing depth. Each bite of the matcha latte is a taste trip, taking you through the teahouses of Kyoto to experience the tranquility and harmony.</p>
+                    <p class="explain">Matcha latte, like a touch of fresh green on a spring day, blends Oriental tea
+                        charm with Western milk perfectly. Its delicate foam moves gently on the tip of the tongue, like
+                        the cherry petals in the spring breeze, light without losing depth. Each bite of the matcha
+                        latte is a taste trip, taking you through the teahouses of Kyoto to experience the tranquility
+                        and harmony.</p>
                 </div>
-    
+
             </div>
-    
+
         </div>
     </section>
 
-    
+    <section class="map" id="map">
+        <div>
+            <div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <script src="../js/coffee-js.js"></script> <!--引入自己的js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </body>
 
 </html>

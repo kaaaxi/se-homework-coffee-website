@@ -7,7 +7,7 @@ document.querySelector('#loginIcon').onclick = function () {
 }
 
 // 当 #close 被点击时，从 .login 元素移除 'active' 类
-document.querySelector('#close').onclick = function () {
+document.querySelector('#close1').onclick = function () {
     Login.classList.remove('active');
 }
 
@@ -31,6 +31,69 @@ window.onscroll = function () {
         document.querySelector('.header').classList.remove('active'); // 否则移除 'active' 类，隐藏导航栏
     }
 }
+// 获取.signup-button
+let signup = document.querySelector(".signup")
+
+
+// 当点击sign up按钮时，给.signup添加active并移除.login的active
+document.querySelector(".signup-button").onclick = function () {
+    signup.classList.add("active");
+    Login.classList.remove("active");
+}
+
+
+// 当点击关闭按钮的时候，移除.signup的active
+document.querySelector('#close2').onclick = function () {
+    signup.classList.remove('active');
+}
+
+
+// 当点击login按钮的时候，给.login添加active并移除.signup的active
+document.querySelector(".login-button").onclick = function () {
+    Login.classList.add("active");
+    signup.classList.remove("active");
+}
+
+
+// 设置每个都为空列表
+let login_email = [];
+let login_password = [];
+let signup_database = {};
+let signup_password1 = [];
+let signup_password2 = [];
+
+
+const submit_signup = document.querySelector(".signup-submitButton");
+let signupemail = document.querySelector("#signup-email");
+let signuppassword1 = document.querySelector("#signup-password1")
+let signuppassword2 = document.querySelector("#signup-password2")
+const signuperror = document.querySelector(".signuperror")
+
+submit_signup.addEventListener("click", validsignup)
+
+function validsignup() {
+    if (getHash(signuppassword1.value) === getHash(signuppassword2.value) && signup_password1.value && signup_password2.value) {
+        Login.classList.add("active");
+        signup.classList.remove("active");
+
+        signup_database[getHash(signupemail.value)] = getHash(signuppassword1.value);
+    }
+    else {
+        signuperror.style.opacity = 1;
+        signuperror.style.transform = "translate(-50%,-50%)"
+
+    }
+
+}
+
+// 哈希函数
+function getHash(value) {
+    return CryptoJS.SHA256(value).toString();
+}
+
+
+
+
 
 
 let count = 0
