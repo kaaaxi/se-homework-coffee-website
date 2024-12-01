@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    <title>user-profile</title>
+    <style>
+        .bio {
+            
+            position: absolute;
+            top: 5%;
+            left: 58%;
+            transform: translateX(-50%); /* 水平居中 */
+            width: 60%; /* 设置宽度为屏幕宽度的60% */
+        }
+        .Background {
+            background-color: rgb(104,149,139);
+            padding: 20px;
+            height: 24vh;
+        }
+        @media (min-width: 768px) {
+            .Hero .container {
+                padding-top: 40px;
+                padding-bottom: 30px;
+            }
+        }
+        .user-image { /* 用户头像 */
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%; /* 弧度 */
+            margin: 0 auto;  
+            position: absolute; 
+            top : 5%;
+            right : 75%;
+            display: flex;
+            justify-content: center; 
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .user-image input {
+            display: none;
+        }
+        .user-image label { /* 上传图片的按钮 */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s; /* 鼠标悬停时背景颜色变化 */
+            pointer-events: none;  /* 禁止点击事件 */
+        }
+        .user-image:hover label { /* 鼠标悬停时背景颜色变化 */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .user-image img { /* 用户头像 */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 图片不变形 */
+            border-radius: 50%; /* 弧度 */
+        } 
+        .menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .menu ul {
+            list-style: none; /* 去掉列表的符号 */
+            margin: 0;
+            padding: 0;
+        }
+        .menu ul li {
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .menu ul li:hover {
+            background-color: #f0f0f0;
+        }
+        .username {
+            margin-top: 50px; /* 距离头像框顶部的距离 */
+            font-size: 22px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); /* 背景颜色 */
+            padding: 5px 10px; /* 内边距 */
+            border-radius: 5px; /* 圆角 */
+    }
+    .points {
+        margin-top: 20px; /* 距离 .username 底部的距离 */
+        font-size: 20px;
+        color: white;
+        display: flex;
+        align-items: center; /* 垂直居中 */
+    }
+    .points i {
+        margin-right: 10px; /* 图标和文字之间的距离 */
+    }
+    .introduce-container {
+        margin-top: 20px; /* 距离 .points 底部的距离 */
+        width: 100%;
+        justify-content: center;
+    }
+    .introduce {
+        width: 100%;
+        height: 25px;
+        background-color: rgb(104,149,139);
+        color: white;
+        border: none;
+        outline: none;
+        resize: none;
+        overflow: hidden;
+        transition: all 0.01s ease;
+        display: block; /* 确保输入框显示 */
+    }
+    .introduce:focus {
+        height: 100px;
+        background-color: rgb(51, 79, 73);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .introduce:hover {
+        border: 1px solid rgba(255, 255, 255, 0.5); /* 鼠标悬停时显示白色边框 */
+    }
+    .introduce::placeholder {
+        color: white;
+        line-height:normal;
+    }
+
+    .userPageNav { /* 侧边栏 */
+            width: 200px;
+            padding: 20px;
+            position: absolute; /* 固定定位 */
+            top: 30vh; /* 显示在background下面 */
+            left: 15%;
+            height: auto;
+            display: flex;
+            flex-direction: column; /* 垂直布局 */
+        }
+        .userPageNav a {
+            color: gray;
+            text-decoration: none;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .userPageNav a:hover {
+            color: #0c3095;
+        }
+        .userPageNav a.active {
+            color: #0c3095;
+        }
+        .userPageNav a i {
+            margin-right: 10px;
+        }
+        .userPage-content {
+            margin-left: 50%; /* 确保内容不被侧边栏遮挡 */
+            padding: 20px;
+            flex-grow: 1; /* 占据剩余空间 */
+            margin-top: 45px;  /* 与侧边栏对齐 */
+        }
+        .security div { /* 表单项 */
+            margin-bottom: 1rem; 
+        }
+
+        .security-input {
+            color: gray;
+            padding: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .security-input:focus {
+            color: black;
+            background-color: white;
+        }
+
+        .edit-button, .update-button {
+            background-color: lightblue;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .update-button {
+            background-color: gray;
+        }
+
+        .edit-button:hover, .update-button:hover {
+            background-color: lightgray;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="userProfile">
+        <div id="content">
+            <div class="UserPage">
+                <div class="Background">
+                    <div class="container">
+                        <div class="UserCard">
+                            <h1 class="identity">
+                                <div class="user-image" id="userImage">
+                                    <img id="profileImage" src="" alt="User Image" style="display: none;">
+                                    <input type="file" id="imageUpload" accept="image/*">
+                                    <label for="imageUpload"><i class="fas fa-plus"></i></label>
+                                </div>
+                                <div class="menu" id="menu">
+                                    <ul>
+                                        <li id="uploadImage">upload</li>
+                                        <li id="removeImage">remove</li>
+                                    </ul>
+                                </div>
+                            </h1>
+                            <div class="bio">
+                                <span class="username"></span>
+                                <div class="points">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span class="pointText">points: 0</span>
+                                </div>
+                                <div class="introduce-container">
+                                    <textarea class="introduce" placeholder="introduce yourself..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mainBody">
+                    <nav class="userPageNav">
+                        <a href="#profile" id="profileLink"><i class="fa-solid fa-id-card"></i>Profile</a>
+                        <a href="#pointsExchange" id="pointsExchangeLink"><i class="fa-solid fa-gift"></i>Points Exchange</a>
+                        <a href="#security" id="securityLink"><i class="fa-solid fa-key"></i>Security</a>
+                        <a href="#back" id="backLink"><i class="fa-solid fa-right-to-bracket"></i>Back</a>
+                    </nav>
+                    <div class="userPage-content">
+                        <div class="profile" id="profile" style="display: none;"><p>null</p></div>
+                        <div class="pointsExchange" id="pointsExchange" style="display: none;"><p>no</p></div>
+                        <div class="security" id="security" style="display: none;">
+                            <div>
+                                <label for="security-username">User Name:</label>
+                                <input type="text" id="security-username" class="security-input">
+                                <button id="edit-username" class="edit-button">Edit</button>
+                            </div>
+                            <div>
+                                <label for="old-password">Old Password:</label>
+                                <input type="password" id="old-password" class="security-input">
+                            </div>
+                            <div>
+                                <label for="new-password">New Password:</label>
+                                <input type="password" id="new-password" class="security-input">
+                            </div>
+                            <div>
+                                <label for="confirm-new-password">Confirm New Password:</label>
+                                <input type="password" id="confirm-new-password" class="security-input">
+                            </div>
+                            <button id="update-password" class="update-button">Update Password</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const userImage = document.getElementById('userImage'); // 获取用户头像元素
+        const profileImage = document.getElementById('profileImage'); // 获取用户头像
+        const imageUpload = document.getElementById('imageUpload'); // 获取上传图片的按钮
+        const menu = document.getElementById('menu'); // 获取菜单
+        const uploadImage = document.getElementById('uploadImage'); // 获取上传图片
+        const removeImage = document.getElementById('removeImage'); // 获取移除图片
+        const imageLabel = document.getElementById('imageLabel'); // 获取上传图片的按钮
+
+        userImage.addEventListener('click', function(event) { // 点击用户头像
+            if (profileImage.src && profileImage.src !== window.location.href) { // 如果有用户头像
+                const rect = userImage.getBoundingClientRect(); // 获取用户头像的位置
+                menu.style.top = `${rect.bottom + window.scrollY}px`; // 设置菜单的位置
+                menu.style.left = `${rect.left + window.scrollX}px`; // 设置菜单的位置
+                menu.style.display = 'block'; // 显示菜单
+                event.stopPropagation(); 
+            } else { // 如果没有用户头像
+                imageUpload.click(); // 触发上传图片的按钮
+                event.stopPropagation(); 
+            }
+        });
+
+
+        document.addEventListener('click', function() { // 点击文档
+            menu.style.display = 'none'; // 隐藏菜单
+        });    
+        
+        document.addEventListener('DOMContentLoaded', function () { // 页面加载完成后
+            const storedImage = localStorage.getItem('profileImage'); // 从 localStorage 中获取图片的 Base64 数据
+            if (storedImage) { // 如果存在存储的图片数据
+                profileImage.src = storedImage; // 设置用户头像
+                profileImage.style.display = 'block'; // 显示用户头像
+                document.querySelector('.user-image label').style.display = 'none'; // 隐藏上传图片的按钮
+            }
+        });        
+
+        menu.addEventListener('click', function(event) { // 点击菜单
+            event.stopPropagation(); // 阻止事件冒泡
+        });
+
+        uploadImage.addEventListener('click', function() { // 点击上传图片
+            imageUpload.click(); // 触发上传图片的按钮
+        }); 
+
+        imageUpload.addEventListener('change', function(event) { // 选择图片
+            const file = event.target.files[0]; // 获取图片文件
+            if (file) { // 如果有图片文件
+                const reader = new FileReader(); // 创建文件读取器
+                reader.onload = function(e) { // 文件读取成功
+                    profileImage.src = e.target.result;  // 设置用户头像    
+                    profileImage.style.display = 'block'; // 显示用户头像
+                    document.querySelector('.user-image label').style.display = 'none'; // 隐藏上传图片的按钮
+                    localStorage.setItem('profileImage', e.target.result); // 将图片的 Base64 数据存储到 localStorage 中
+                };
+                reader.readAsDataURL(file); // 读取文件
+            }
+        });
+
+        removeImage.addEventListener('click', function() { // 点击移除图片
+            profileImage.src = ''; // 移除用户头像
+            profileImage.style.display = 'none'; // 隐藏用户头像
+            document.querySelector('.user-image label').style.display = 'flex'; // 显示上传图片的按钮
+            imageUpload.value = ''; // 重置 input 元素的值
+            localStorage.removeItem('profileImage'); // 从 localStorage 中删除图片数据
+            menu.style.display = 'none'; // 隐藏菜单
+        });
+        
+        document.addEventListener('DOMContentLoaded', function () {
+        // 从 localStorage 中获取用户名
+        const username = localStorage.getItem("user'sname");
+        if (username) {
+            // 显示用户名
+            document.querySelector('.username').textContent = username;
+        }
+
+        const introduce = document.querySelector('.introduce');// 获取自我介绍输入框
+        const background = document.querySelector('.Background'); // 获取背景
+        const userPageNav = document.querySelector('.userPageNav'); // 获取 userPageNav
+        const userPageContent = document.querySelector('.userPage-content'); // 获取 userPage-content
+
+        // 从 localStorage 中获取 introduce 文本
+        const savedIntroduce = localStorage.getItem('introduceText');
+        if (savedIntroduce) {
+            introduce.value = savedIntroduce; // 设置自我介绍输入框的值
+        }
+
+        introduce.addEventListener('focus', function () { // 输入框获取焦点
+            introduce.style.height = '105px';// 设置输入框高度
+            introduce.style.backgroundColor = 'rgb(51, 79, 73)'; // 每次点击时改变背景颜色
+            background.style.height = 'calc(24vh + 80px)'; // 设置背景高度
+            userPageNav.style.marginTop = '80px'; // userPageNav 向下移动
+            userPageContent.style.marginTop = '80px'; // userPage-content 向下移动
+            
+        });
+
+        introduce.addEventListener('blur', function () { // 输入框失去焦点
+            introduce.style.height = '25px';// 设置输入框高度
+            background.style.height = '24vh';// 设置背景高度
+            introduce.style.backgroundColor = 'rgb(104,149,139)';// 设置输入框背景颜色
+            userPageNav.style.marginTop = '0'; // userPageNav 恢复原状
+            userPageContent.style.marginTop = '0'; // userPage-content 恢复原状
+            
+            localStorage.setItem('introduceText', introduce.value);// 将自我介绍文本存储到 localStorage 中
+        });
+
+        introduce.addEventListener('input', function () {// 输入框输入内容
+            introduce.style.backgroundColor = 'rgb(51, 79, 73)';// 设置输入框背景颜色
+        });
+
+        introduce.addEventListener('keydown', function (event) {// 按下键盘
+            if (event.key === 'Enter') { // 如果按下的是回车键
+                event.preventDefault();// 阻止默认行为
+                introduce.blur();// 失去焦点
+            }
+        });
+
+        document.addEventListener('click', function (event) {// 点击文档
+            if (!introduce.contains(event.target)) {// 如果点击的不是输入框
+                introduce.blur();// 失去焦点
+            }
+        });        
+        
+    });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.userPageNav a'); // 获取所有链接
+            const contents = document.querySelectorAll('.userPage-content> div');    // 获取所有内容
+
+            navLinks.forEach(link => { // 遍历所有链接
+                link.addEventListener('click', function (event) { // 点击链接
+                    event.preventDefault(); // 阻止默认行为
+
+                    // 移除所有链接的 active 类
+                    navLinks.forEach(nav => nav.classList.remove('active')); 
+
+                    // 隐藏所有内容
+                    contents.forEach(content => content.style.display = 'none');
+
+                    // 添加 active 类到当前点击的链接
+                    this.classList.add('active');
+
+                    // 显示对应的内容
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).style.display = 'block'; // 显示对应的内容
+                });
+            });
+
+            // 默认显示第一个内容
+            navLinks[0].classList.add('active');
+            contents[0].style.display = 'block'; // 显示第一个内容
+        });
+
+        document.getElementById('backLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        window.history.back();
+    });
+
+    // 获取元素
+    const securityUsernameInput = document.querySelector("#security-username");
+    const editUsernameButton = document.querySelector("#edit-username");
+    const oldPasswordInput = document.querySelector("#old-password");
+    const newPasswordInput = document.querySelector("#new-password");
+    const confirmNewPasswordInput = document.querySelector("#confirm-new-password");
+    const updatePasswordButton = document.querySelector("#update-password");
+
+    // 更新用户名
+    editUsernameButton.addEventListener("click", function() {
+        const newUsername = securityUsernameInput.value;
+        const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase'));
+        const currentUsername = localStorage.getItem("user'sname");
+        // 检查新用户名是否已经存在于本地缓存的 mockDatabase 中
+        const usernameExists = storedDatabase.users.some(user => user.username === newUsername);
+
+
+        if (!usernameExists) {
+            // 查找当前用户
+            const userIndex = storedDatabase.users.findIndex(user => user.username === currentUsername);
+            if (userIndex !== -1) {
+                // 更新用户名
+                storedDatabase.users[userIndex].username = newUsername;
+                localStorage.setItem('mockDatabase', JSON.stringify(storedDatabase));
+                localStorage.setItem("user'sname", newUsername);
+                alert("Username updated successfully!");
+                location.reload(); // 刷新网页
+            } else {
+                alert("User not found!");
+            }
+        } else {
+            alert("Username already exists!");
+        }
+    });
+
+    // 更新密码
+    updatePasswordButton.addEventListener("click", function() {
+        const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase'));
+        const userName = localStorage.getItem("user'sname");
+        const oldPassword = oldPasswordInput.value; // 获取旧密码
+        const newPassword = newPasswordInput.value; // 获取新密码
+        const confirmNewPassword = confirmNewPasswordInput.value; // 获取确认新密码
+
+        // 查找用户
+        const userIndex = storedDatabase.users.findIndex(user => user.username === userName); 
+        if (userIndex !== -1) { // 如果找到用户
+            const user = storedDatabase.users[userIndex]; // 获取用户
+            if (user.password === getHash(oldPassword)) {     // 如果旧密码正确
+                if (newPassword === confirmNewPassword && newPassword !== oldPassword) { // 如果新密码和确认新密码相同且不同于旧密码
+                    // 更新密码
+                    user.password = getHash(newPassword); 
+                    localStorage.setItem('mockDatabase', JSON.stringify(storedDatabase));
+                    alert("Password updated successfully!");
+                    location.reload(); // 刷新网页
+                } else {
+                    alert("New passwords do not match or are the same as the old password!");
+                }
+            } else {
+                alert("Old password is incorrect!");
+            }
+        } else {
+            alert("User not found!");
+        }
+    });
+    </script>
+
+    <script src="../js/mock-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</body>
+</html>

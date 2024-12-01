@@ -16,7 +16,7 @@
     <header class="header fixed-top"> <!--头部 fixed-top Bootstrap 类 将导航栏固定在页面的顶部-->
         <div class="container"> <!--容器-->
             <div class="row align-items-center"> <!-- Bootstrap 类 将子元素整体居中-->
-                <a href="#" class="logo mr-auto"><img src="../photo/logo.jpg" alt="后期放个logo"><span>coffee
+                <a href="#" class="logo mr-auto"><img src="../photo/logo.png" alt="后期放个logo"><span>coffee
                         machine</span></a>
                 <!--logo-->
                 <!--mr-auto Bootstrap 类 将元素向右对齐-->
@@ -29,6 +29,10 @@
                     <a href="#contact">contact</a> <!--联系我们-->
                     <a href="#login" class="iconContainer" id="loginIcon"><i class="fa-solid fa-circle-user"></i><span
                             class="tooltip">Login</span></a> <!--登录-->
+                    <div id="userMenu" class="user-menu">
+                        <a href="user-profile.html">profile</a>
+                        <a href="#" id="logout">quit</a>
+                    </div>        
                 </nav>
                 <div class="icons">
                     <div id="menu-btn" class="fas fa-bars"></div>
@@ -41,6 +45,7 @@
         <form class="log-in" action="">
             <div id="close1" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
             <h3 class="loginerror">error</h3>
+            <h3 class="loginsuccess">Success</h3>
             <h2>Log In</h2>
             <label for="email" class="user">email:</label>
             <input type="email" placeholder="enter your email" class="enter" id="login-email">
@@ -49,7 +54,7 @@
             <div class="flex">
                 <input type="checkbox" name="" id="remember">
                 <label for="remember">remember me</label>
-                <a href="#">forget password?</a>
+                <a href="#" class="forget-password-link">forget password?</a>
             </div>
             <input type="submit" value="sign in" class="login-submitButton">
             <p class="account">Don't have an account? <a href="#" class="signup-button">sign up</a></p>
@@ -62,7 +67,10 @@
         <form action="">
             <div id="close2" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
             <h3 class="signuperror">error</h3>
+            <h3 class="signupsuccess">Success</h3>
             <h2>Sign Up</h2>
+            <label for="username" class="user">username:</label>
+            <input type="text" placeholder="enter your username" class="enter" id="signup-username">
             <label for="email" class="user">email:</label>
             <input type="email" placeholder="enter your email" class="enter" id="signup-email">
             <label for="password" class="user">password:</label>
@@ -79,6 +87,26 @@
 
     </div>
 
+    <div class="forget-password">
+        <form action="">
+            <div id="close3" class="fa-solid fa-circle-xmark"></div> <!--关闭按钮-->
+            <h3 class="forgeterror">error</h3>
+            <h3 class="forgetsuccess">Success</h3>
+            <h2>Forget Password</h2>
+            <label for="email" class="user">email:</label>
+            <input type="email" placeholder="enter your email" class="enter" id="forget-email">
+            <button type="button" class="send-code-button">Send Code</button>
+            <label for="code" class="user">verification code:</label>
+            <span id="generated-code" class="generated-code"></span>
+            <input type="text" placeholder="enter the code" class="enter" id="verification-code">
+            <label for="new-password" class="user">New Password:</label>
+            <input type="password" placeholder="enter your new password" class="enter" id="new-password">
+            <label for="confirm-password" class="user">Confirm New Password:</label>
+            <input type="password" placeholder="confirm your new password" class="enter" id="confirm-password">
+            <input type="submit" value="verify" class="verify-code-button">
+            <p class="account">Don't have an account? <a href="#" class="signup-button">sign up</a></p>
+        </form>
+    </div>
 
 
     <section class="home" id="home">
@@ -133,7 +161,7 @@
         <h1 class="heading"> about Coffee bean </h1>
         <div class="box-container container">
             <div class="box">
-                <img src="https://pic1.zhimg.com/v2-4eebaa61e1fa17663dbfad1af156ade4_r.jpg" alt="">
+                <img src="https://www.gafei.com/uploads/allimg/151005/1642534L7-1.jpg" alt="">
                 <div class="content">
                     <h3>Colombia</h3>
                     <p>Colombian coffee beans are known for their medium roast and balanced taste. It has subtle nutty
@@ -258,14 +286,69 @@
     </section>
 
     <section class="activity" id="activity">
-        <div>
-            <div>
-                <div>
+        <header>
+            <figure class="Topic">
+                <span>Activity</span>
+            </figure>
+        </header>
+        <main>
+            <section class="carousel next">
+              <div class="list">
+                <article class="item other_1">
+                  <div class="main-content" style="background-color: rgb(126,69,38)">
+                    <div class="content">
+                        <img src="../photo/活动3.png" alt="" />
+                    </div>
+                  </div>
+                  <figure class="image">
+                    <img src="../photo/活动3杯.png" alt="" />
+                    <figcaption>Activity: Free Tasting</figcaption>
+                  </figure>
+                </article>
+                <article class="item active">
+                  <div class="main-content" style="background-color: rgb(129,143,176)">
+                    <div class="content">
+                        <img src="../photo/活动1.png" alt="" />
+                    </div>
+                  </div>
+                  <figure class="image">
+                    <img src="../photo/活动1杯.png" alt="" />
+                    <figcaption>Activity: Coffee Museum</figcaption>
+                  </figure>
+                </article>
+      
+                <article class="item other_2">
+                  <div class="main-content" style="background-color: rgb(215,181,144)">
+                    <div class="content">
+                        <img src="../photo/活动2.png" alt="" />
+                    </div>
+                  </div>
+                  <figure class="image">
+                    <img src="../photo/活动2杯.png" alt="" />
+                    <figcaption>Activity: Cafe Board Game</figcaption>
+                  </figure>
+                </article>
+                <article class="item">
+                  <div class="main-content" style="background-color: rgb(78,88,110)">
+                    <div class="content">
+                        <img src="../photo/活动5.png" alt="" />
+                    </div>
+                  </div>
+                  <figure class="image">
+                    <img src="../photo/活动5杯.png" alt="" />
+                    <figcaption>Activity: Midnight Opera</figcaption>
+                  </figure>
+                </article>
+              </div>
+              <div class="arrows">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+              </div>
+            </section>
+          </main>
 
-                </div>
-            </div>
-        </div>
     </section>
+
     <section class="contact" id="contact">
         <h1 class="heading"> contact us  </h1>
         <div class="container">
@@ -298,6 +381,7 @@
     </section>
 
     <script src="../js/coffee-js.js"></script> <!--引入自己的js-->
+    <script src="../js/mock-database.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </body>
 

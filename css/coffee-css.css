@@ -57,8 +57,10 @@ html {
 }
 
 .logo img {
-    height: 5rem;
-    width: 5rem;
+    height: 8rem;
+    width: 8rem;
+    position: relative;
+    top: -1rem;
 }
 
 .logo span {
@@ -78,7 +80,7 @@ section {
 }
 
 .header .navigation a:hover {
-    text-decoration: underline !important;
+    text-decoration: underline ;
     /* text-decoration: none; */
     /* !important 是一个优先级声明，它会覆盖其他具有相同选择器规则的样式，确保该规则总是被应用 */
     text-underline-offset: .5rem;
@@ -452,7 +454,6 @@ input[name='r'] {
 .header.active {
     padding: 1.5rem 0;
     background: rgba(81, 42, 16, 0.9);
-    /* 带有透明度的背景颜色 */
 }
 
 .login {
@@ -490,6 +491,38 @@ input[name='r'] {
     /* 相对定位 */
     animation: fadeIn .8s linear;
     /* 淡入动画 */
+}
+
+.login form .loginerror {
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+    color: white;
+    background-color: red;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    margin: auto;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.login form .loginsuccess {
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+    color: white;
+    background-color: green;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    margin: auto;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 @keyframes fadeIn {
@@ -684,6 +717,21 @@ input[name='r'] {
     transform: translateX(-50%);
 }
 
+.signup form .signupsuccess {
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+    color: white;
+    background-color: green;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    margin: auto;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .signup form .enter {
     /* 登录输入框样式 */
     width: 100%;
@@ -784,11 +832,243 @@ input[name='r'] {
     display: flex;
 }
 
-.header.active {
+.forget-password {
+    position: fixed;
+    /* 固定定位 */
+    top: 0;
+    /* 距离顶部 0 */
+    left: 0;
+    /* 距离左侧 0 */
+    z-index: 1100;
+    /* z-index 属性设置元素的堆叠顺序 确保登录框在页面中位于其他元素的上方 */
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    /* 背景颜色为黑色，透明度为 0.8 */
+    display: none;
+    /* 默认隐藏 */
+    padding: 2rem;
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: center;
+    /* 水平垂直居中 */
+}
+
+.forget-password form {
+    width: 50rem;
+    /* 表单宽度 */
+    padding: 4rem;
+    /* 表单内边距 */
+    background: #fff;
+    /* 表单背景颜色 */
+    text-align: center;
+    /* 文本居中 */
+    position: relative;
+    /* 相对定位 */
+    animation: fadeIn .8s linear;
+    /* 淡入动画 */
+}
+
+.forget-password form h2 {
+    padding: 1rem 0;
+    font-size: 3rem;
+    color: #222;
+    margin-top: 1rem;
+    /* 顶部外边距 */
+}
+
+.forget-password form .enter {
+    /* 登录输入框样式 */
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    border: 0.1rem solid #512a10;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+}
+
+.forget-password form .user {
+    /* 更改email和password的样式 */
+    font-size: 2rem;
+    margin: 0.5rem 0;
+
+}
+
+.forget-password form .generated-code {
+    color: blue; /* 字体颜色为蓝色 */
+    margin-left: 1rem; /* 添加左边距 */
+    font-size: 1.5rem; /* 字体大小 */
+    text-align: right;
+}
+
+.forget-password form .flex {
+    /* 更改忘记密码和记住我勾选框的样式 */
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    /* 间距 */
+    margin: 1rem 0;
+}
+
+.forget-password form .flex label {
+    /* 更改label的样式 */
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #666;
+    margin-bottom: 0;
+    /* 取消底部外边距 */
+    cursor: pointer;
+    /* 鼠标悬停时显示手型(提醒你可以点击) */
+}
+
+.forget-password form .flex a {
+    /* 更改忘记密码的样式 */
+    font-size: 1.5rem;
+    color: #512a10;
+    margin-left: auto;
+    /* 左边距自动 */
+}
+
+.forget-password form .flex a:hover {
+    /* 鼠标悬停时 */
+    text-decoration: underline !important;
+    /* 下划线 */
+}
+
+.forget-password .send-code-button {
+    /* 按钮样式 */
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    display: inline-block;
+    border: 0.1rem solid #512a10;
+    color: #512a10;
+    background: none;
+    cursor: pointer; /* 鼠标悬停时显示为指针，表示可点击 */
+    font-size: 1.7rem;
+    margin-left: -6.9rem; /* 左边对齐 */
+    margin-bottom: 1rem;
+    margin-right: 1.5rem;
+}
+
+.forget-password .send-code-button:hover {
+    background: #512a10;
+    color: #fff;
+}
+
+.forget-password .verify-code-button {
+    /* 按钮样式 */
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    display: inline-block;
+    border: 0.1rem solid #512a10;
+    color: #512a10;
+    background: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.forget-password .verify-code-button:hover {
+    background: #512a10;
+    color: #fff;
+}
+
+.forget-password .verify-code-button {
+    margin-bottom: 2rem;
+}
+
+.forget-password form .account {
+    padding: 1.5rem .5rem;
+    font-size: 1.5rem;
+    line-height: 2;
+    /* 行高 */
+    color: #666;
+    margin-bottom: 0;
+}
+
+.forget-password form #close3 {
+    position: absolute;
+    /* 绝对定位 */
+    top: -4rem;
+    right: 0;
+    font-size: 3rem;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.3s ease;
+    /* 添加旋转的过渡效果 */
+}
+
+.forget-password form #close3:hover {
+    transform: rotate(90deg);
+    /* 旋转 90 度 */
+}
+
+.forget-password.active {
+    display: flex;
+}
+
+.forget-password form .forgeterror {
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+    color: white;
+    background-color: red;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    margin: auto;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.forget-password form .forgetsuccess {
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+    color: white;
+    background-color: green;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    margin: auto;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.user-menu {
+    display: none;
+    position: absolute; /* 绝对定位 */
+    top: 100%; /* 距父元素一个高度的距离 */
+    left: 50%; /* 距离父元素右边父元素宽度50%的距离 */
+    transform: translateX(-50%); /* 水平居中 */
+    background: white;
+    border: 1px solid #ccc; 
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1); /* 添加阴影 */  
+    z-index: 1200; /* 设置堆叠顺序 */
+    width: 13rem; 
+    text-align: left;
+}
+
+.header .user-menu a {
+    display: block; /* 设置为块级元素 */
+    padding: 1rem;
+    color: #333; /* 设置文本颜色 */
+    text-decoration: none; /* 去除下划线 */
+    font-size: 2rem;
+}
+
+.user-menu a:hover {
+    background: #cdcccc !important;
+    text-decoration: none !important;
+}
+
+/* .header.active {
     padding: 1.5rem 0;
     background: rgba(81, 42, 16, 0.9);
-    /* 带有透明度的背景颜色 */
-}
+    
+} */
 
 
 
@@ -1119,4 +1399,247 @@ padding: 1.2rem 1.4rem;
     background: #512a10;
     color: #fff;
     text-decoration: none;
+}
+
+/*活动界面*/
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+    --border-color: #fff5;
+    --w-image: 500px;
+    --calculate: calc(3 / 2);
+}
+.activity{
+    background-color:#ffe2e2;
+    width:100%;
+    height:90%;
+}
+.activity .Topic{
+    position:relative;
+    top:-2rem;
+    text-align: center;
+    font-family: 'Bubblegum Sans', cursive; /* 使用Bubblegum Sans字体 */
+    font-size: 4rem; /* 根据需要调整字体大小 */
+    color: black; /* 设置文字颜色为白色 */
+}
+.carousel {
+    margin-top: -50px;
+    width: 100%;
+    height: 110vh;
+    overflow: hidden;
+}
+
+.carousel .list {
+    width:101%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel .list .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item .image {
+    width: var(--w-image);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    font-weight: 500;
+}
+
+.carousel .list .item .image img {
+    padding:0;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.carousel .list .item .image figcaption {
+    font-family: "Aboreto";
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.carousel .list .item .main-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(100% - calc(var(--w-image) * var(--calculate)));
+    }
+.carousel .list .item .main-content .content img{
+    width: 101%;
+    height: 100%;
+}
+.arrows {
+    position: absolute;
+    bottom: -0.25rem;
+    width: calc(100% - calc(var(--w-image) * var(--calculate)));
+    display: grid;
+    grid-template-columns: repeat(2, 50px);
+    grid-template-rows: 50px;
+    justify-content: center;
+    gap: 10px;
+}
+
+.arrows button {
+    position: absolute;
+    background-color: rgb(172,176,203);
+    border: 1px solid var(--border-color);
+    color: black;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    line-height: 0;
+    /* box-shadow: 0 10px 40px #5555; */
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.arrows button:hover {
+  background-color: white;
+}
+
+.carousel .list .item {
+  display: none;
+}
+
+.carousel .list .item.active,
+.carousel .list .item.other_1,
+.carousel .list .item.other_2 {
+  display: block;
+}
+
+.carousel .list .item.active {
+  z-index: 2;
+}
+
+.carousel .list .item.other_1,
+.carousel .list .item.other_2 {
+  pointer-events: none;
+}
+
+.carousel .list .item.active .main-content {
+  animation: showContent 1s ease-in-out 1 forwards;
+}
+
+@keyframes showContent {
+  from {
+    clip-path: circle(0% at 70% 50%);
+  }
+
+  to {
+    clip-path: circle(100% at 70% 50%);
+  }
+}
+
+.next .item.other_1 {
+  z-index: 1;
+}
+.next .item .image img,
+.next .item .image figcaption {
+  animation: effectNext 0.5s ease-in-out 1 forwards;
+}
+
+@keyframes effectNext {
+  from {
+    transform: translateX(calc(var(--transform-from)));
+  }
+  to {
+    transform: translateX(calc(var(--transform-from) - var(--w-image)));
+  }
+}
+
+.next .item.active .image {
+  --transform-from: var(--w-image);
+}
+
+.next .item.other_1 .image {
+  z-index: 3;
+  --transform-from: 0px;
+  overflow: hidden;
+}
+
+.next .item.other_2 .image {
+  z-index: 3;
+  --transform-from: calc(var(--w-image) * 2);
+}
+
+.arrows {
+  z-index: 10;
+}
+
+.prev .list .item .image img,
+.prev .list .item .image figcaption {
+  animation: effectPrev 0.5s ease-in-out forwards;
+}
+
+@keyframes effectPrev {
+  from {
+    transform: translateX(calc(var(--transform-from)));
+  }
+  to {
+    transform: translateX(calc(var(--transform-from) + var(--w-image)));
+  }
+}
+
+.prev .list .item.active .image {
+  --transform-from: calc(var(--w-image) * -1);
+  overflow: hidden;
+}
+
+.prev .list .item.other_1 .image {
+  --transform-from: 0px;
+  z-index: 3;
+}
+
+.prev .list .item.other_2 .image {
+  z-index: 3;
+  --transform-from: var(--w-image);
+}
+
+.prev .list .item.other_2 .main-content {
+  opacity: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  :root {
+    --calculate: 1;
+    --w-image: 400px;
+  }
+
+  .carousel .list .item .main-content .content h2 {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .carousel .list .item .image {
+    width: 100%;
+    left: 0;
+    justify-content: center;
+  }
+  .carousel .list .item .image figcaption {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+  }
+
+  .carousel .list .item .main-content .content {
+    display: none;
+  }
+
+  .arrows {
+    left: 50%;
+    justify-content: center;
+  }
 }
