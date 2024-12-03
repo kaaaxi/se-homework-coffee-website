@@ -1162,88 +1162,162 @@ input[name='r'] {
     }
 }
 
-.about .heading {
-    font-size: 5rem;
+/*about*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 
+.about {
+    position:relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-.about .box-container {
-    display: grid;
-    /* 设置为网格布局 */
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-    /* 设置网格列的大小(一行几个)*/
-    gap: 3rem;
-    /* 设置网格之间的间距 */
+:root {
+  --all-transition: 1s ease;
+  --opacity-transition: 0.3s ease;
 }
 
-.about .box-container .box {
-    overflow: hidden;
-    /* 隐藏溢出内容 */
-    position: relative;
-    /* 相对定位 */
-    height: 25rem;
-    /* 设置高度 */
-    /* top: 50%; */
-
+.about {
+  background-color:#ffC98B;
+  min-height: 100vh;
+  transition: var(--all-transition);
+  overflow: hidden;
 }
 
-.about .box-container .box:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    /* 添加阴影 */
-    border: 0.1rem solid #512a10;
-
+.carousel_about .img-box {
+  position: absolute;
+  left: -50%;
+  /* left: -60%; */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1300px;
+  height: 1300px;
 }
 
-.about .box-container .box:hover img {
-    transform: translateY(-100%);
-    /* 图片向上移动 */
+.carousel_about .img-box .img-list {
+  height: 100%;
+  transform: rotate(-120deg);
 }
 
-.about .box-container .box:hover .content {
-    transform: translateY(-16%);
-    /* 显示内容 */
+.carousel_about .img-list .img-slider {
+  height: 100%;
+  transition: var(--all-transition);
 }
 
-.about .box-container .box img {
-    width: 100%;
-    /* 设置图片宽度为 100% */
-    height: 100%;
-    /* 设置图片高度为 100% */
-    object-fit: cover;
-    /* 设置图片填充方式 */
-    transition: 0.3s ease;
-    /* 添加过渡效果 */
+.carousel_about .img-slider .img-item {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(calc(-360deg / 6 * var(--i))) scale(0.8);
+  transform-origin: 650px;
+  transition: var(--all-transition);
 }
 
-.about .box-container .box .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #fff;
-    text-align: center;
-    /* 文本居中 */
-    padding: 3rem 2rem;
-    height: 100%;
-    width: 100%;
-    transform: translateY(100%);
-    /* 隐藏内容 */
-    padding-top: 4rem;
-    transition: 0.3s ease;
+.carousel_about .img-slider .img-item.active {
+  transform: translateY(-50%) rotate(calc(-360deg / 6 * var(--i))) scale(1) translateX(-63%);
+  z-index: 1;
 }
 
-.about .box-container .box .content h3 {
-    font-size: 2rem;
-    text-transform: capitalize;
-    color: #222;
+.carousel_about .img-item .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--all-transition);
 }
 
-.about .box-container .box .content p {
-    padding: 1rem 0;
-    font-size: 1.5rem;
-    line-height: 2;
-    color: #666;
-    margin-bottom: 0;
+.carousel_about .img-item .item img {
+  transform: rotate(calc(360deg / 6 * var(--i))) rotate(120deg); /* 旋转 */
+  filter: blur(8px); /* 模糊 */
+  transition: var(--all-transition); /* 过渡效果 */
+  width: 50%;
 }
+
+.carousel_about .img-item.active .item img {
+  filter: blur(0); /* 取消模糊 */
+} 
+
+.carousel_about .info-box {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+}
+
+.carousel_about .info-box .info-item {
+  position: absolute;
+  height: 100%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border-radius: 40px 0 0 40px;
+  padding: 0 70px;
+  /* color: #fff; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateX(100%);
+  box-shadow: none;
+  transition: transform var(--all-transition), opacity var(--opacity-transition), box-shadow var(--all-transition);
+}
+
+.carousel_about .info-box .info-item.active {
+  transform: translateX(0);
+  opacity: 1;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.carousel_about .info-item h2 {
+  font-size: 30px;
+}
+
+.info-item h2:nth-child(2) {
+  margin: 20px 0;
+}
+
+.carousel_about .info-item p {
+  font-size: 16px;
+  margin: 20px 0 25px;
+}
+
+.carousel_about .info-item .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about .carousel_about .navigation {
+  position: absolute;
+  left: 23%;
+  bottom: 7%;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.about .carousel_about .navigation span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 55px;
+  color: #fff;
+}
+
 
 
 .menu {

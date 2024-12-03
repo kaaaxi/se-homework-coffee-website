@@ -398,6 +398,7 @@ document.querySelector('#logout').onclick = function (event) {
     event.preventDefault();
     localStorage.removeItem("authToken");
     localStorage.removeItem("user'sname")
+    // localStorage.removeItem("profileImage")
     userMenu.style.display = 'none';
     // Login.classList.add('active');
 };
@@ -560,3 +561,58 @@ const changeSlider = () => {
 let autoPlay = setInterval(() => {
   next.click();
 }, 5000);
+
+
+const imgSlider = document.querySelector(".img-slider");
+const imgSliderItems = document.querySelectorAll(".img-slider .item");
+const imgItems = document.querySelectorAll(".img-item");
+const infoItems = document.querySelectorAll(".info-item");
+
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+
+let colors = ["#3674be", "#d26181", "#ceb13d", "#c6414c", "#171f2b", "#50aa61"];
+
+console.log(imgSlider);
+console.log(nextBtn);
+console.log(prevBtn);
+
+let indexSlider = 0;
+let index = 0;
+
+const slider = () => {
+  imgSlider.style.transform = `rotate(${indexSlider * 60}deg)`;
+
+  imgSliderItems.forEach((item) => {
+    item.style.transform = `rotate(${indexSlider * -60}deg)`;
+  });
+
+  document.querySelector(".img-item.active").classList.remove("active");
+  imgItems[index].classList.add("active");
+
+  document.querySelector(".info-item.active").classList.remove("active");
+  infoItems[index].classList.add("active");
+
+//   document.body.style.background = colors[index];
+};
+
+nextBtn.addEventListener("click", () => {
+  indexSlider++;
+  index++;
+
+  if (index > imgItems.length - 1) {
+    index = 0;
+  }
+
+  slider();
+});
+
+prevBtn.addEventListener("click", () => {
+  indexSlider--;
+  index--;
+
+  if (index < 0) {
+    index = imgItems.length - 1;
+  }
+  slider();
+});

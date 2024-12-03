@@ -98,48 +98,48 @@
             background-color: rgba(0, 0, 0, 0.5); /* 背景颜色 */
             padding: 5px 10px; /* 内边距 */
             border-radius: 5px; /* 圆角 */
-    }
-    .points {
-        margin-top: 20px; /* 距离 .username 底部的距离 */
-        font-size: 20px;
-        color: white;
-        display: flex;
-        align-items: center; /* 垂直居中 */
-    }
-    .points i {
-        margin-right: 10px; /* 图标和文字之间的距离 */
-    }
-    .introduce-container {
-        margin-top: 20px; /* 距离 .points 底部的距离 */
-        width: 100%;
-        justify-content: center;
-    }
-    .introduce {
-        width: 100%;
-        height: 25px;
-        background-color: rgb(104,149,139);
-        color: white;
-        border: none;
-        outline: none;
-        resize: none;
-        overflow: hidden;
-        transition: all 0.01s ease;
-        display: block; /* 确保输入框显示 */
-    }
-    .introduce:focus {
-        height: 100px;
-        background-color: rgb(51, 79, 73);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-    .introduce:hover {
-        border: 1px solid rgba(255, 255, 255, 0.5); /* 鼠标悬停时显示白色边框 */
-    }
-    .introduce::placeholder {
-        color: white;
-        line-height:normal;
-    }
+        }
+        .points {
+            margin-top: 20px; /* 距离 .username 底部的距离 */
+            font-size: 20px;
+            color: white;
+            display: flex;
+            align-items: center; /* 垂直居中 */
+        }
+        .points i {
+            margin-right: 10px; /* 图标和文字之间的距离 */
+        }
+        .introduce-container {
+            margin-top: 20px; /* 距离 .points 底部的距离 */
+            width: 100%;
+            justify-content: center;
+        }
+        .introduce {
+            width: 100%;
+            height: 25px;
+            background-color: rgb(104,149,139);
+            color: white;
+            border: none;
+            outline: none;
+            resize: none;
+            overflow: hidden;
+            transition: all 0.01s ease;
+            display: block; /* 确保输入框显示 */
+        }
+        .introduce:focus {
+            height: 100px;
+            background-color: rgb(51, 79, 73);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .introduce:hover {
+            border: 1px solid rgba(255, 255, 255, 0.5); /* 鼠标悬停时显示白色边框 */
+        }
+        .introduce::placeholder {
+            color: white;
+            line-height:normal;
+        }
 
-    .userPageNav { /* 侧边栏 */
+        .userPageNav { /* 侧边栏 */
             width: 200px;
             padding: 20px;
             position: absolute; /* 固定定位 */
@@ -181,6 +181,7 @@
             color: gray;
             padding: 0.5rem;
             margin-left: 1rem;
+            margin-bottom: 1rem;
         }
 
         .security-input:focus {
@@ -197,13 +198,95 @@
         }
 
         .update-button {
-            background-color: gray;
+            background-color: rgb(208, 208, 208);
         }
 
         .edit-button:hover, .update-button:hover {
-            background-color: lightgray;
+            background-color: rgb(173, 172, 172);
+        }
+        .profile-input {
+            color: rgb(128, 128, 128);
+            padding: 0.5rem;
+            background-color: #f0f2f4;
         }
 
+        .profile-input:focus {
+            color: black;
+            background-color: white;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .radio-group label {
+            margin-right: 1rem;
+        }
+        .profile-input {
+            margin-bottom: 1rem;
+        }
+        .emailOutput {
+            margin-bottom: 1rem;
+        }
+        
+        .main-body {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            margin-left: -30%;
+        }
+
+        .gift-container {
+            width: 20rem;
+            height: 30rem;
+            float: left;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .gift-container:hover {
+            transform: translateY(-10px);
+            /* 鼠标悬停时上移 */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            /* 添加阴影 */
+            transition: 0.5s;
+        }
+
+        .gift-container img {
+            width: 100%;
+            height: 60%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .gift-container h2 {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .giftbox-container {
+            width: 66rem;
+            height: 94rem;
+            background-color: white;
+            position: absolute;
+            top: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gift-container p {
+            text-align: center;
+            padding: 1rem;
+            cursor: pointer;
+            color: #0c3095;
+        }
     </style>
 </head>
 <body>
@@ -247,8 +330,102 @@
                         <a href="#back" id="backLink"><i class="fa-solid fa-right-to-bracket"></i>Back</a>
                     </nav>
                     <div class="userPage-content">
-                        <div class="profile" id="profile" style="display: none;"><p>null</p></div>
-                        <div class="pointsExchange" id="pointsExchange" style="display: none;"><p>no</p></div>
+                        <div class="profile" id="profile" style="display: none;">
+                            <div>
+                                <label for="public-email">Public Email:</label>
+                                <div id="public-email" class="emailOutput"></div>
+                            </div>
+                            <div>
+                                <label for="gender">Gender:</label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" name="gender" value="male">
+                                        <i class="fas fa-male"></i> Male
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" value="female">
+                                        <i class="fas fa-female"></i> Female
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="birthday">Birthday:</label>
+                                <div>
+                                    <input type="text" id="birthday" class="profile-input" placeholder="dd/mm/yy">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="location">Location:</label>
+                                <div>
+                                    <input type="text" id="location" class="profile-input">
+                                </div>
+                            </div>
+                            <div>
+                                <button id="save-profile" class="update-button">Save</button>
+                            </div>
+                        </div>
+
+                        <div class="pointsExchange" id="pointsExchange" style="display: none;">
+                            <div class="main-body">
+                                <div class="giftbox-container">
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_202412022044591.jpg" alt="">
+                                        <h2>Coffee Aromatherapy</h2>
+                                        <p>500 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_20241202204356.jpg" alt="">
+                                        <h2>Coffee Pendant</h2>
+                                        <p>100 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_20241202204414.jpg" alt="">
+                                        <h2>Cap Pendant</h2>
+                                        <p>100 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_20241202204432.jpg" alt="">
+                                        <h2>Chain Pendant</h2>
+                                        <p>100 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_20241202204458.jpg" alt="">
+                                        <h2>Mark Cup</h2>
+                                        <p>300 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_202412022044581.jpg" alt="">
+                                        <h2>Metal Cup</h2>
+                                        <p>300 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_202412022044582.jpg" alt="">
+                                        <h2>Coffee Bracelet 1</h2>
+                                        <p>400 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_202412022044583.jpg" alt="">
+                                        <h2>Coffee Bracelet 2</h2>
+                                        <p>400 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                    <div class="gift-container">
+                                        <img src="../photo/微信图片_20241202204459.jpg" alt="">
+                                        <h2>Coffee Hat</h2>
+                                        <p>400 point</p>
+                                        <p>Exchange now></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <div class="security" id="security" style="display: none;">
                             <div>
                                 <label for="security-username">User Name:</label>
@@ -285,28 +462,30 @@
 
         userImage.addEventListener('click', function(event) { // 点击用户头像
             if (profileImage.src && profileImage.src !== window.location.href) { // 如果有用户头像
-                const rect = userImage.getBoundingClientRect(); // 获取用户头像的位置
-                menu.style.top = `${rect.bottom + window.scrollY}px`; // 设置菜单的位置
-                menu.style.left = `${rect.left + window.scrollX}px`; // 设置菜单的位置
-                menu.style.display = 'block'; // 显示菜单
-                event.stopPropagation(); 
+            const rect = userImage.getBoundingClientRect(); // 获取用户头像的位置
+            menu.style.top = `${rect.bottom + window.scrollY}px`; // 设置菜单的位置
+            menu.style.left = `${rect.left + window.scrollX}px`; // 设置菜单的位置
+            menu.style.display = 'block'; // 显示菜单
+            event.stopPropagation(); 
             } else { // 如果没有用户头像
-                imageUpload.click(); // 触发上传图片的按钮
-                event.stopPropagation(); 
+            imageUpload.click(); // 触发上传图片的按钮
+            event.stopPropagation(); 
             }
         });
-
 
         document.addEventListener('click', function() { // 点击文档
             menu.style.display = 'none'; // 隐藏菜单
         });    
         
         document.addEventListener('DOMContentLoaded', function () { // 页面加载完成后
-            const storedImage = localStorage.getItem('profileImage'); // 从 localStorage 中获取图片的 Base64 数据
-            if (storedImage) { // 如果存在存储的图片数据
-                profileImage.src = storedImage; // 设置用户头像
-                profileImage.style.display = 'block'; // 显示用户头像
-                document.querySelector('.user-image label').style.display = 'none'; // 隐藏上传图片的按钮
+            const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase')) || { users: [] };
+            const currentUsername = localStorage.getItem("user'sname");
+            const currentUser = storedDatabase.users.find(user => user.username === currentUsername);
+
+            if (currentUser && currentUser.profileImage) { // 如果存在存储的图片数据
+            profileImage.src = currentUser.profileImage; // 设置用户头像
+            profileImage.style.display = 'block'; // 显示用户头像
+            document.querySelector('.user-image label').style.display = 'none'; // 隐藏上传图片的按钮
             }
         });        
 
@@ -321,14 +500,22 @@
         imageUpload.addEventListener('change', function(event) { // 选择图片
             const file = event.target.files[0]; // 获取图片文件
             if (file) { // 如果有图片文件
-                const reader = new FileReader(); // 创建文件读取器
-                reader.onload = function(e) { // 文件读取成功
-                    profileImage.src = e.target.result;  // 设置用户头像    
-                    profileImage.style.display = 'block'; // 显示用户头像
-                    document.querySelector('.user-image label').style.display = 'none'; // 隐藏上传图片的按钮
-                    localStorage.setItem('profileImage', e.target.result); // 将图片的 Base64 数据存储到 localStorage 中
-                };
-                reader.readAsDataURL(file); // 读取文件
+            const reader = new FileReader(); // 创建文件读取器
+            reader.onload = function(e) { // 文件读取成功
+                profileImage.src = e.target.result;  // 设置用户头像    
+                profileImage.style.display = 'block'; // 显示用户头像
+                document.querySelector('.user-image label').style.display = 'none'; // 隐藏上传图片的按钮
+
+                const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase')) || { users: [] };
+                const currentUsername = localStorage.getItem("user'sname");
+                const currentUser = storedDatabase.users.find(user => user.username === currentUsername);
+
+                if (currentUser) {
+                currentUser.profileImage = e.target.result; // 更新用户头像
+                localStorage.setItem('mockDatabase', JSON.stringify(storedDatabase)); // 将图片的 Base64 数据存储到 localStorage 中
+                }
+            };
+            reader.readAsDataURL(file); // 读取文件
             }
         });
 
@@ -337,7 +524,16 @@
             profileImage.style.display = 'none'; // 隐藏用户头像
             document.querySelector('.user-image label').style.display = 'flex'; // 显示上传图片的按钮
             imageUpload.value = ''; // 重置 input 元素的值
-            localStorage.removeItem('profileImage'); // 从 localStorage 中删除图片数据
+
+            const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase')) || { users: [] };
+            const currentUsername = localStorage.getItem("user'sname");
+            const currentUser = storedDatabase.users.find(user => user.username === currentUsername);
+
+            if (currentUser) {
+            delete currentUser.profileImage; // 删除用户头像数据
+            localStorage.setItem('mockDatabase', JSON.stringify(storedDatabase)); // 从 localStorage 中删除图片数据
+            }
+
             menu.style.display = 'none'; // 隐藏菜单
         });
         
@@ -355,9 +551,12 @@
         const userPageContent = document.querySelector('.userPage-content'); // 获取 userPage-content
 
         // 从 localStorage 中获取 introduce 文本
-        const savedIntroduce = localStorage.getItem('introduceText');
-        if (savedIntroduce) {
-            introduce.value = savedIntroduce; // 设置自我介绍输入框的值
+        const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase')) || { users: [] };
+        const currentUsername = localStorage.getItem("user'sname");
+        const currentUser = storedDatabase.users.find(user => user.username === currentUsername);
+
+        if (currentUser && currentUser.introduceText) {
+            introduce.value = currentUser.introduceText; // 设置自我介绍输入框的值
         }
 
         introduce.addEventListener('focus', function () { // 输入框获取焦点
@@ -366,7 +565,6 @@
             background.style.height = 'calc(24vh + 80px)'; // 设置背景高度
             userPageNav.style.marginTop = '80px'; // userPageNav 向下移动
             userPageContent.style.marginTop = '80px'; // userPage-content 向下移动
-            
         });
 
         introduce.addEventListener('blur', function () { // 输入框失去焦点
@@ -374,9 +572,12 @@
             background.style.height = '24vh';// 设置背景高度
             introduce.style.backgroundColor = 'rgb(104,149,139)';// 设置输入框背景颜色
             userPageNav.style.marginTop = '0'; // userPageNav 恢复原状
-            userPageContent.style.marginTop = '0'; // userPage-content 恢复原状
-            
-            localStorage.setItem('introduceText', introduce.value);// 将自我介绍文本存储到 localStorage 中
+            userPageContent.style.marginTop = '45px'; // userPage-content 恢复原状
+
+            if (currentUser) {
+            currentUser.introduceText = introduce.value; // 更新自我介绍文本
+            localStorage.setItem('mockDatabase', JSON.stringify(storedDatabase)); // 将自我介绍文本存储到 localStorage 中
+            }
         });
 
         introduce.addEventListener('input', function () {// 输入框输入内容
@@ -495,6 +696,82 @@
             alert("User not found!");
         }
     });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // 获取本地缓存数据
+            const storedDatabase = JSON.parse(localStorage.getItem('mockDatabase')) || { users: [] };
+            const currentUsername = localStorage.getItem("user'sname");
+            const currentUser = storedDatabase.users.find(user => user.username === currentUsername); 
+
+            if (currentUser) {
+            // 显示 Public Email
+            const publicEmailElement = document.getElementById('public-email');
+            publicEmailElement.textContent = currentUser.email || '';
+
+            // 显示 Gender
+            const genderRadios = document.querySelectorAll('input[name="gender"]');
+            const savedGender = currentUser.gender;
+            if (savedGender) {
+                document.querySelector(`input[name="gender"][value="${savedGender}"]`).checked = true;
+            }
+
+            // 显示 Birthday
+            const birthdayInput = document.getElementById('birthday');
+            const savedBirthday = currentUser.birthday;
+            if (savedBirthday) {
+                birthdayInput.value = savedBirthday;
+                birthdayInput.style.color = 'black';
+            }
+
+            // 显示 Location
+            const locationInput = document.getElementById('location');
+            const savedLocation = currentUser.location;
+            if (savedLocation) {
+                locationInput.value = savedLocation;
+                locationInput.style.color = 'black';
+            }
+
+            // 保存数据
+            document.getElementById('save-profile').addEventListener('click', function () {
+                // 保存 Gender
+                const selectedGender = document.querySelector('input[name="gender"]:checked');
+                if (selectedGender) {
+                currentUser.gender = selectedGender.value;
+                }
+
+                // 保存 Birthday
+                const birthdayValue = birthdayInput.value;
+                if (birthdayValue) {
+                currentUser.birthday = birthdayValue;
+                }
+
+                // 保存 Location
+                const locationValue = locationInput.value;
+                if (locationValue) {
+                currentUser.location = locationValue;
+                }
+
+                // 更新存储的数据库
+                localStorage.setItem('mockDatabase', JSON.stringify(storedDatabase));
+
+                alert('Profile updated successfully!');
+                location.reload();
+            });
+
+            // 处理 Birthday 输入框的颜色
+            birthdayInput.addEventListener('focus', function () {
+                birthdayInput.style.color = 'black';
+            });
+
+            // 处理 Location 输入框的颜色
+            locationInput.addEventListener('focus', function () {
+                locationInput.style.color = 'black';
+            });
+            } else {
+            alert('User not found!');
+            }
+        });
+
     </script>
 
     <script src="../js/mock-database.js"></script>
