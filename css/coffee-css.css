@@ -1172,7 +1172,9 @@ input[name='r'] {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
-
+.about .heading{
+    margin-top:5rem;
+}
 :root {
   --all-transition: 1s ease;
   --opacity-transition: 0.3s ease;
@@ -1327,7 +1329,7 @@ input[name='r'] {
 .menu .menu-box .item-container {
     display: grid;
     /* 设置为网格布局 */
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     /* 设置网格列的大小 */
     gap: 2rem;
     /* 设置网格之间的间距 */
@@ -1340,7 +1342,6 @@ input[name='r'] {
     /* 隐藏溢出内容 */
     position: relative;
     /* 相对定位 */
-    height: 30rem;
 
 }
 
@@ -1404,7 +1405,7 @@ input[name='r'] {
 }
 
 .contact form .box {
-margin: .7rem 0;
+margin: 1.7rem 0;
 border: 0.1rem solid #512a10;
 font-size: 1.6rem;
 width: 100%;
@@ -1463,8 +1464,9 @@ padding: 1.2rem 1.4rem;
     height: 5rem;
     width: 5rem;
     line-height: 5rem; /* 行高 */
-    font-size: 3rem;
+    font-size: 4rem;
     /* border: 0.1rem solid #512a10; */
+    font-weight: bold;
     color: #512a10;
     margin: 0 .3rem;
 }
@@ -1484,22 +1486,24 @@ padding: 1.2rem 1.4rem;
     --calculate: calc(3 / 2);
 }
 .activity{
-    background-color:#ffe2e2;
+    background-color:#eeeeee;
     width:100%;
     height:90%;
+    padding:0;
 }
 .activity .Topic{
     position:relative;
-    top:-2rem;
+    left:47%;
+    top:0rem;
     text-align: center;
-    font-family: 'Bubblegum Sans', cursive; /* 使用Bubblegum Sans字体 */
+    /* font-family: '', cursive; */
     font-size: 4rem; /* 根据需要调整字体大小 */
     color: black; /* 设置文字颜色为白色 */
 }
 .carousel {
     margin-top: -50px;
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -1519,7 +1523,7 @@ padding: 1.2rem 1.4rem;
 
 .carousel .list .item .image {
     width: var(--w-image);
-    height: 100%;
+    height: 90%;
     position: absolute;
     top: 0;
     left: calc(100% - calc(var(--w-image) * var(--calculate)));
@@ -1551,8 +1555,9 @@ padding: 1.2rem 1.4rem;
     grid-template-columns: calc(100% - calc(var(--w-image) * var(--calculate)));
     }
 .carousel .list .item .main-content .content img{
+    margin-top:5%;
     width: 101%;
-    height: 100%;
+    height: 85%;
 }
 .arrows {
     position: absolute;
